@@ -39,31 +39,40 @@ footer a{color:var(--muted)}
 
 <main class="wrap">
   <h1>Politique de confidentialité – NoTasTick</h1>
-  <p class="muted">Dernière mise à jour : 23 octobre 2026</p>
+  <p class="muted">Dernière mise à jour : 26 octobre 2026</p>
   <h2>1. Éditeur</h2>
   <p>Stéphane Attlane, entrepreneur individuel (« OmStef Apps »). Voir les <a href="/mentions-legales.html">mentions légales</a>. Contact : <a href="mailto:contact@omstef26.fr">contact@omstef26.fr</a>.</p>
   <h2>2. Ce que fait l'application</h2>
-  <p>NoTasTick permet de consulter et de modifier, depuis une montre, les listes et tâches de votre compte Microsoft To Do, et de lire vos notes OneNote (autorisation en lecture). Pour cela, l'application communique directement avec le service Microsoft Graph, avec votre autorisation.</p>
-  <h2>3. Données traitées</h2>
+  <p>NoTasTick se compose d'une application pour montre Wear OS et d'une application compagnon pour téléphone Android. Elles permettent de consulter et de modifier vos listes et tâches Microsoft To Do, et de lire, créer et modifier vos notes Microsoft OneNote (l'édition se fait sur le téléphone ; la montre ne fait que les afficher). Les applications communiquent directement avec le service Microsoft Graph, avec votre autorisation.</p>
+  <h2>3. Connexion à votre compte Microsoft</h2>
+  <p>La première connexion se fait depuis l'application du téléphone, sur la page officielle de Microsoft : l'application ne voit ni ne stocke jamais votre mot de passe. L'autorisation obtenue est ensuite transmise automatiquement à la montre jumelée, par la liaison Wear OS entre vos deux appareils, afin que la montre fonctionne ensuite seule. Une connexion directe depuis la montre (code à saisir sur la page Microsoft) reste possible en secours.</p>
+  <h2>4. Données traitées</h2>
   <ul>
-    <li><strong>Vos listes, tâches, étapes, échéances et niveaux d'importance</strong> : lus et modifiés dans votre compte Microsoft To Do, selon vos actions. Une copie est conservée sur la montre pour l'affichage et le mode hors ligne.</li>
-    <li><strong>Jetons de connexion Microsoft</strong> : conservés dans l'espace privé de l'application sur la montre, pour éviter de vous reconnecter. Votre mot de passe n'est jamais vu ni stocké par l'application.</li>
+    <li><strong>Vos listes, tâches, étapes, échéances et niveaux d'importance</strong> : lus et modifiés dans votre compte Microsoft To Do, selon vos actions. Une copie peut être conservée sur l'appareil pour l'affichage et le mode hors ligne.</li>
+    <li><strong>Vos blocs-notes, sections et pages OneNote</strong> : lus, créés et modifiés depuis l'application du téléphone, y compris les images, fichiers, enregistrements audio et vidéos que vous y ajoutez, qui sont envoyés à votre compte OneNote. Pour un affichage rapide et la lecture sans connexion, une copie de vos notes est conservée sur le téléphone et sur la montre ; sur le téléphone, les modifications en attente d'envoi (avec leurs images et fichiers) sont mises en file d'attente dans l'espace privé de l'application jusqu'à leur envoi à Microsoft. La montre n'affiche vos notes qu'en lecture et ne les modifie pas.</li>
+    <li><strong>Jeton de connexion Microsoft</strong> : conservé dans l'espace privé des applications, sur le téléphone et sur la montre, pour éviter de vous reconnecter. Il est transmis uniquement entre vos deux appareils jumelés.</li>
+    <li><strong>Préférences</strong> (thème, langue, couleurs choisies) : stockées localement sur l'appareil.</li>
     <li><strong>Texte dicté ou saisi</strong> : utilisé uniquement pour créer la tâche demandée. La dictée vocale est traitée par le service de reconnaissance vocale de votre montre.</li>
   </ul>
-  <h2>4. Ce que je ne fais pas</h2>
+  <h2>5. Ce que je ne fais pas</h2>
   <ul>
     <li>Je n'exploite aucun serveur pour cette application : vos données ne transitent pas par moi et je n'y ai pas accès.</li>
     <li>Aucune publicité, aucun outil de mesure d'audience, aucun traceur.</li>
-    <li>Aucune donnée n'est vendue ni transmise à des tiers, hors Microsoft (pour synchroniser vos tâches).</li>
+    <li>Aucune donnée n'est vendue ni transmise à des tiers, hors Microsoft (pour synchroniser vos tâches et vos notes).</li>
   </ul>
-  <h2>5. Autorisations Microsoft</h2>
-  <p>L'application demande l'accès à vos tâches (Tasks.ReadWrite) et le maintien de la connexion (offline_access), uniquement pour fournir les fonctions décrites ci-dessus. Vous pouvez retirer cet accès à tout moment sur <a href="https://myapps.microsoft.com">myapps.microsoft.com</a> (compte professionnel ou scolaire) ou <a href="https://account.live.com/consent/Manage">account.live.com/consent/Manage</a> (compte personnel).</p>
-  <h2>6. Suppression des données</h2>
-  <p>Désinstaller l'application supprime toutes les données locales (copie des tâches et jetons). Vos tâches restent dans votre compte Microsoft, régi par la politique de confidentialité de Microsoft.</p>
-  <h2>7. Vos droits</h2>
-  <p>Les données restant sur votre appareil et chez Microsoft, vos droits RGPD s'exercent d'abord auprès de Microsoft pour les données du compte. Pour toute question me concernant : <a href="mailto:contact@omstef26.fr">contact@omstef26.fr</a>. Vous pouvez aussi saisir la CNIL (<a href="https://www.cnil.fr">cnil.fr</a>).</p>
-  <h2>8. Achat</h2>
+  <h2>6. Autorisations Microsoft</h2>
+  <p>L'application demande : l'accès à vos tâches en lecture et en écriture (Tasks.ReadWrite), l'accès à vos notes OneNote en lecture et en écriture (Notes.ReadWrite) et le maintien de la connexion (offline_access), uniquement pour fournir les fonctions décrites ci-dessus. Vous pouvez retirer cet accès à tout moment sur <a href="https://myapps.microsoft.com">myapps.microsoft.com</a> (compte professionnel ou scolaire) ou <a href="https://account.live.com/consent/Manage">account.live.com/consent/Manage</a> (compte personnel).</p>
+  <h2>7. Suppression des données</h2>
+  <p>Se déconnecter depuis l'application du téléphone efface le jeton de connexion. Désinstaller l'application supprime toutes les données locales (copies, préférences et jetons). Vos tâches et vos notes restent dans votre compte Microsoft, régi par la politique de confidentialité de Microsoft.</p>
+  <h2>8. Vos droits</h2>
+  <p>Les données restant sur vos appareils et chez Microsoft, vos droits RGPD s'exercent d'abord auprès de Microsoft pour les données du compte. Pour toute question me concernant : <a href="mailto:contact@omstef26.fr">contact@omstef26.fr</a>. Vous pouvez aussi saisir la CNIL (<a href="https://www.cnil.fr">cnil.fr</a>).</p>
+  <h2>9. Achat</h2>
   <p>L'achat est géré par Google Play ; je ne reçois ni ne conserve vos coordonnées bancaires.</p>
+  <h2>10. Indépendance</h2>
+  <p>NoTasTick est une application indépendante, ni affiliée à Microsoft ni approuvée par Microsoft. « Microsoft », « Microsoft To Do » et « OneNote » sont des marques de Microsoft Corporation.</p>
+  <hr>
+  <h2 lang="en">Privacy policy (English summary)</h2>
+  <p lang="en">NoTasTick (Wear OS watch app + Android phone companion) reads and edits your Microsoft To Do lists and tasks and reads, creates and edits your OneNote notes (editing is done on the phone; the watch only displays them) directly through Microsoft Graph, with your consent. You sign in once on the phone, on Microsoft's official page; the app never sees your password. The resulting token is passed to your paired watch over the Wear OS link and stored privately on both devices. No server is operated by the developer, no data is sold or shared with third parties other than Microsoft, and there are no ads or trackers. Signing out on the phone clears the token; uninstalling removes all local data. Local copies of your notes are kept on the phone and the watch for fast and offline reading, and pending edits (including added images and files) are queued privately on the phone until they are sent to Microsoft. Requested permissions: Tasks.ReadWrite, Notes.ReadWrite, offline_access. Contact: <a href="mailto:contact@omstef26.fr">contact@omstef26.fr</a>.</p>
 </main>
 
 <footer>
