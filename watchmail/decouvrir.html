@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WatchMail : vos mails sur montre Wear OS et téléphone — appli Android</title>
+<meta name="description" content="WatchMail : lisez, supprimez et déplacez vos mails depuis votre montre Wear OS, avec une appli mail complète sur le téléphone. IMAP/POP3, plusieurs comptes, sans serveur intermédiaire. Sur Google Play.">
+<meta property="og:title" content="WatchMail : vos mails au poignet">
+<meta property="og:description" content="Messagerie pour montre Wear OS + appli téléphone. Plusieurs comptes, notifications, synchro instantanée, aucune donnée collectée.">
+<meta property="og:image" content="https://omstef26.fr/watchmail/img/montre-liste.jpg">
+<meta property="og:type" content="website">
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;max-width:860px;margin:0 auto;padding:24px 16px 48px;color:#1c1b1f;background:#f7faff}
+h1{font-size:2rem;color:#1d5fa8;margin:0}h2{font-size:1.25rem;margin-top:2rem;color:#1d5fa8}
+a{color:#1d5fa8}
+.top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.top img{width:72px;height:72px;border-radius:16px}
+.lead{font-size:1.1rem;margin:14px 0 18px}
+.btn{display:inline-block;background:#1d5fa8;color:#fff !important;text-decoration:none;font-weight:600;padding:13px 26px;border-radius:999px;box-shadow:0 3px 10px rgba(29,95,168,.3)}
+.btn:hover{background:#154a86}
+.price{display:block;margin-top:8px;font-size:.92rem;color:#5b6570}
+.card{background:#fff;border:1px solid #d6e3f3;border-radius:12px;padding:12px 18px;margin:12px 0}
+.card ul{margin:6px 0;padding-left:1.2em}
+.shots{display:flex;gap:12px;overflow-x:auto;padding:6px 2px 14px;scroll-snap-type:x mandatory}
+.shots img{height:440px;width:auto;border-radius:14px;border:1px solid #d6e3f3;scroll-snap-align:start;flex:0 0 auto}
+.sw{position:absolute;top:14px;right:16px}
+.sw button{border:1px solid #d6e3f3;background:#fff;border-radius:999px;padding:6px 14px;cursor:pointer}
+[data-l]{display:none}html[lang=fr] [data-l=fr],html[lang=en] [data-l=en]{display:revert}
+footer{margin-top:36px;font-size:.9rem;color:#777}
+@media (prefers-color-scheme:dark){body{background:#12151a;color:#e3e6ea}.card{background:#1a1f27;border-color:#26364a}.sw button{background:#1a1f27;color:#e3e6ea;border-color:#26364a}.shots img{border-color:#26364a}h1,h2,a{color:#8fbdf0}.price,footer{color:#9aa6b3}}
+</style>
+</head>
+<body>
+<div class="sw"><button type="button" id="sw">English</button></div>
+
+<div class="top">
+  <img src="img/icone.png" alt="WatchMail" width="72" height="72">
+  <h1>WatchMail</h1>
+</div>
+
+<p class="lead" data-l="fr"><strong>Vos mails au poignet</strong>, avec une appli mail complète sur le téléphone. Lisez, supprimez, déplacez : tout est immédiat et se synchronise des deux côtés. <strong>Aucun serveur intermédiaire, aucune donnée collectée.</strong></p>
+<p class="lead" data-l="en"><strong>Your email on your wrist</strong>, with a full email app on your phone. Read, delete, move: everything is instant and stays in sync on both devices. <strong>No middleman server, no data collected.</strong></p>
+
+<p>
+  <a class="btn" data-l="fr" href="https://play.google.com/store/apps/details?id=fr.omstef26.watchmail">Télécharger sur Google Play</a>
+  <a class="btn" data-l="en" href="https://play.google.com/store/apps/details?id=fr.omstef26.watchmail">Get it on Google Play</a>
+  <span class="price" data-l="fr">Achat unique, sans abonnement · Montre Wear OS 3+ et téléphone Android · FR, EN, ES, DE, IT</span>
+  <span class="price" data-l="en">One-time purchase, no subscription · Wear OS 3+ watch and Android phone · FR, EN, ES, DE, IT</span>
+</p>
+
+<div class="shots">
+  <img src="img/montre-liste.jpg" alt="Liste des mails sur la montre" loading="lazy">
+  <img src="img/montre-mail.jpg" alt="Mail ouvert sur la montre" loading="lazy">
+  <img src="img/boite.jpg" alt="Boîte de réception sur le téléphone" loading="lazy">
+  <img src="img/comptes.jpg" alt="Comptes" loading="lazy">
+  <img src="img/reglages.jpg" alt="Réglages" loading="lazy">
+</div>
+
+<h2 data-l="fr">Sur la montre</h2><h2 data-l="en">On the watch</h2>
+<div class="card" data-l="fr"><ul>
+<li>Consultez vos mails sans sortir le téléphone.</li>
+<li>Supprimez, déplacez ou marquez comme lu en un geste, même avec une mauvaise connexion.</li>
+<li>Notifications des nouveaux mails, retirées dès que le message est lu ou supprimé (montre et téléphone).</li>
+<li>Pastille de mails non lus sur le cadran.</li>
+<li>Boîte « Toutes les boîtes aux lettres » pour tous vos comptes.</li>
+</ul></div>
+<div class="card" data-l="en"><ul>
+<li>Read your email without taking out your phone.</li>
+<li>Delete, move or mark as read in one gesture, even on a poor connection.</li>
+<li>New-mail notifications, dismissed as soon as the message is read or deleted (watch and phone).</li>
+<li>Unread badge on your watch face.</li>
+<li>An "All mailboxes" view for all your accounts.</li>
+</ul></div>
+
+<h2 data-l="fr">Sur le téléphone</h2><h2 data-l="en">On the phone</h2>
+<div class="card" data-l="fr"><ul>
+<li>Plusieurs comptes IMAP et POP3 (Gmail, Yahoo, Orange, autres).</li>
+<li>Lecture, réponse, transfert, envoi avec pièces jointes.</li>
+<li>Gestion des dossiers, thème clair ou sombre.</li>
+<li>Synchronisation instantanée avec la montre.</li>
+</ul></div>
+<div class="card" data-l="en"><ul>
+<li>Multiple IMAP and POP3 accounts (Gmail, Yahoo, Orange, others).</li>
+<li>Read, reply, forward and send with attachments.</li>
+<li>Folder management, light or dark theme.</li>
+<li>Instant sync with the watch.</li>
+</ul></div>
+
+<h2 data-l="fr">Confidentialité</h2><h2 data-l="en">Privacy</h2>
+<div class="card" data-l="fr">Vos identifiants et vos messages restent sur vos appareils et sur votre serveur de messagerie. WatchMail ne passe par aucun serveur intermédiaire. Prérequis : un compte IMAP ou POP3 (Gmail : mot de passe d'application).</div>
+<div class="card" data-l="en">Your credentials and messages stay on your devices and your mail server. WatchMail uses no intermediate server. Requirement: an IMAP or POP3 account (Gmail: app password).</div>
+
+<p style="text-align:center;margin-top:34px">
+  <a class="btn" data-l="fr" href="https://play.google.com/store/apps/details?id=fr.omstef26.watchmail">Voir WatchMail sur Google Play</a>
+  <a class="btn" data-l="en" href="https://play.google.com/store/apps/details?id=fr.omstef26.watchmail">See WatchMail on Google Play</a>
+</p>
+
+<footer>
+  <span data-l="fr"><a href="confidentialite-watchmail.html">Politique de confidentialité</a> · <a href="mailto:contact@omstef26.fr">contact@omstef26.fr</a></span>
+  <span data-l="en"><a href="confidentialite-watchmail.html">Privacy policy</a> · <a href="mailto:contact@omstef26.fr">contact@omstef26.fr</a></span>
+  <br>
+  <span data-l="fr">WatchMail n'est affiliée à aucun fournisseur de messagerie. Google Play et Wear OS sont des marques de Google LLC.</span>
+  <span data-l="en">WatchMail is not affiliated with any email provider. Google Play and Wear OS are trademarks of Google LLC.</span>
+</footer>
+
+<script>
+(function(){
+  var h=document.documentElement,b=document.getElementById('sw');
+  function set(x){h.lang=x;b.textContent=x==='fr'?'English':'Français';document.title=x==='fr'?'WatchMail : vos mails sur montre Wear OS et téléphone':'WatchMail: email for Wear OS watch and Android phone';}
+  b.addEventListener('click',function(){set(h.lang==='fr'?'en':'fr')});
+  set((navigator.language||'fr').toLowerCase().indexOf('fr')===0?'fr':'en');
+})();
+</script>
+</body>
+</html>
