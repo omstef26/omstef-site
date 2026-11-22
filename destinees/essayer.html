@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jouez gratuitement à L'Horloger de Vauclair – livre dont vous êtes le héros audio | Destinées</title>
+<meta name="description" content="Essayez gratuitement Destinées dans votre navigateur : le début de L'Horloger de Vauclair, un livre dont vous êtes le héros narré à voix haute. Faites vos choix, la suite vous attend dans l'appli.">
+<link rel="canonical" href="https://omstef26.fr/destinees/essayer.html">
+<link rel="icon" href="/destinees/img/icone.png">
+<meta property="og:title" content="Jouez au début de L'Horloger de Vauclair">
+<meta property="og:description" content="Treize coups ont sonné. Il n'aurait dû en sonner que douze. Un livre dont vous êtes le héros, narré, à essayer gratuitement.">
+<meta property="og:image" content="https://omstef26.fr/destinees/img/og.jpg">
+<meta property="og:type" content="website">
+<style>
+:root{--bg:#14110f;--paper:#1f1a17;--text:#efe6d8;--muted:#b7a993;--accent:#c9a45c;--violet:#4a2f6b;--line:#3a312a}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top,#2a1d38 0%,var(--bg) 60%) fixed;color:var(--text);font:18px/1.7 Georgia,"Times New Roman",serif}
+a{color:var(--accent)}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 0;font-family:system-ui,sans-serif;font-size:.9rem}
+header a{color:var(--muted);text-decoration:none}
+.sw{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:4px 12px;cursor:pointer;font:inherit}
+.intro{display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:center;margin:14px 0 26px}
+.intro video,.intro img{width:150px;border-radius:14px;border:1px solid var(--line);display:block}
+h1{font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.15;margin:0 0 8px;color:var(--accent);font-weight:normal}
+.tag{font-style:italic;color:var(--muted);margin:0 0 10px}
+.small{font:14px/1.5 system-ui,sans-serif;color:var(--muted)}
+.book{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px 22px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.place{font:600 12px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+.text p{margin:0 0 1em;transition:color .3s}
+.text p.on{color:#fff;text-shadow:0 0 12px rgba(201,164,92,.25)}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 18px;font-family:system-ui,sans-serif}
+.pill{border:1px solid var(--line);background:#2a231e;color:var(--text);border-radius:999px;padding:8px 16px;cursor:pointer;font:inherit;font-size:.92rem}
+.pill[aria-pressed=true]{border-color:var(--accent);color:var(--accent)}
+.inv{font:13px/1.4 system-ui,sans-serif;color:var(--muted);margin:0 0 14px}
+.inv span{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin:2px 4px 2px 0;color:var(--accent)}
+.choices{display:grid;gap:10px;margin-top:18px}
+.choice{text-align:left;background:transparent;border:1px solid var(--accent);color:var(--text);border-radius:12px;padding:12px 16px;font:inherit;font-size:1rem;cursor:pointer}
+.choice:hover,.choice:focus-visible{background:rgba(201,164,92,.12)}
+.choice::before{content:"➜ ";color:var(--accent)}
+.end{text-align:center}
+.btn{display:inline-block;background:var(--accent);color:#14110f;padding:13px 24px;border-radius:999px;text-decoration:none;font:600 1rem system-ui,sans-serif;margin:6px}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+footer{padding:28px 0 44px}
+@media (max-width:560px){.intro{grid-template-columns:96px 1fr;gap:14px}.intro video,.intro img{width:96px}.book{padding:20px 16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><a href="/destinees/decouvrir.html">← Destinées</a><a href="/">OMStef26</a><button class="sw" id="sw" type="button">English</button></header>
+
+<div class="intro">
+  <video src="/destinees/essai/entree.mp4" poster="/destinees/essai/entree.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+  <div>
+    <h1 id="title"></h1>
+    <p class="tag" id="tagline"></p>
+    <p class="small" id="lead"></p>
+  </div>
+</div>
+
+<div class="book" id="book">
+  <div class="bar">
+    <button class="pill" id="listen" type="button"></button>
+    <span class="small" id="voicelbl"></span>
+    <button class="pill" data-v="f" type="button" aria-pressed="true"></button>
+    <button class="pill" data-v="m" type="button" aria-pressed="false"></button>
+  </div>
+  <p class="place" id="place"></p>
+  <p class="inv" id="inv" hidden></p>
+  <div class="text" id="text"></div>
+  <div class="choices" id="choices"></div>
+</div>
+
+<footer class="small" id="foot"></footer>
+</div>
+
+<script>
+var D={"fr": {"title": "L'Horloger de Vauclair", "tagline": "Treize coups ont sonné. Il n'aurait dû en sonner que douze.", "synopsis": "Novembre 1893. Un horloger vous convoque une nuit à Vauclair, une petite ville où toutes les horloges sonnent treize coups. Vous avez huit heures avant l'aube pour comprendre ce que cache la maison Verdier, et décider ce que vaut le temps. Chaque pièce que vous explorez vous coûte une heure : on ne peut pas tout voir.", "info": "Enquête fantastique · environ 1 h 30 · 8 fins", "items": {"lanterne": "Lanterne sourde", "trousse": "Trousse d'horloger", "loupe": "Loupe de bijoutier", "marteau": "Marteau de fonderie", "cle_cave": "Clef de la cave", "medaillon": "Médaillon d'Élise", "cle_regleur": "Clef de régleur"}, "p": {"debut": {"place": "Vauclair, rue des Horlogers", "paras": ["Novembre 1893. La diligence vous dépose au bout de la rue des Horlogers, dans un brouillard qui sent la suie et l'huile froide. Il est dix heures du soir. Le cocher ne descend pas de son siège ; il refuse même de regarder la maison.", "— Vous avez de la chance, monsieur : à Vauclair, la nuit dure plus longtemps qu'ailleurs.", "Il fouette ses chevaux et disparaît. Vous restez seul avec votre malle de restaurateur d'automates et une lettre pliée en quatre.", "Au-dessus des toits, le cadran de la Tour des Quatre Cadrans indique trois heures dix-sept. Il se trompe, évidemment. Pourtant, quelque chose en vous voudrait croire qu'il ne se trompe pas.", "La maison de l'horloger Anselme Verdier se dresse devant vous : haute, étroite, toutes fenêtres éteintes sauf une, tout en haut."], "clips": ["b6b33f615787", "027be7a1a248", "61621833a165", "f67ecdec0a8d", "3fdcfa737626"], "fx": ["+item:lanterne", "+item:trousse"], "choices": [{"t": "Relire la lettre à la lumière de votre lanterne.", "to": "lettre"}, {"t": "Frapper à la porte.", "to": "porte"}]}, "lettre": {"place": "Vauclair, rue des Horlogers", "paras": ["Vous dépliez la lettre. Elle est arrivée à votre atelier de Lyon il y a trois jours, avec un mandat de voyage et cinquante francs d'avance.", "« Monsieur, on me dit que vous savez réparer ce que d'autres jettent. J'ai un mécanisme qui ne doit pas s'arrêter et qui n'a plus que quelques heures à vivre. Venez avant minuit. N'écoutez pas les coups. — A. Verdier »", "Vous l'aviez déjà lue vingt fois. Mais ce soir, sous la flamme, un détail vous saute aux yeux. La signature est ferme, anguleuse, celle d'un homme qui a l'habitude de commander. Le corps de la lettre, lui, est tracé d'une main ronde et appliquée, avec des « l » bouclés et des « t » qui ne sont jamais barrés jusqu'au bout.", "Une écriture d'écolière."], "clips": ["e19216e0df13", "cdfb808cdd4e", "d1a8c58a4260", "fec4152965e3"], "fx": ["+clue:lettre_ecriture"], "choices": [{"t": "Ranger la lettre et frapper à la porte.", "to": "porte"}, {"t": "Pénétrer dans le vestibule.", "to": "hall"}]}, "porte": {"place": "Maison Verdier", "paras": ["Vous n'avez pas fini de lever le poing que la porte s'ouvre. Une femme se tient dans l'entrebâillement, un bougeoir à la main. Elle porte le tablier d'une gouvernante, mais sous le bonnet ses cheveux sont d'un blanc de cire et son visage est creusé comme celui d'une très vieille dame. Seul son regard est jeune.", "— Madame Odile, dit-elle. Monsieur vous attendait. Entrez vite, avant qu'on vous voie. Il est descendu à la cave à midi et a demandé qu'on ne le dérange sous aucun prétexte. Il a dit que vous sauriez quoi faire.", "Elle referme derrière vous et pousse trois verrous.", "— Une dernière chose, monsieur. À minuit, la maison sonne. Ne comptez pas les coups. Ça ne fait de bien à personne."], "clips": ["79abf906c0de", "c7c5d4b24faf", "e00b1c3e14fa", "3da912d6734b"], "fx": [], "choices": [{"t": "Pénétrer dans le vestibule.", "to": "hall"}, {"t": "Entrer dans le salon.", "to": "fin"}]}, "hall": {"place": "Le vestibule", "paras": ["Le vestibule est une forêt d'horloges. Il y en a au mur, sur les consoles, jusque dans les coins du plafond : des comtoises, des pendules de marbre, des régulateurs à poids, des coucous. Vous en comptez treize. Toutes battent, et pas deux au même rythme, comme une pluie qui hésite.", "Pourtant, toutes marquent la même heure.", "Un escalier de chêne monte vers l'étage. À gauche, la porte du salon ; à droite, celle de l'atelier. Au fond, derrière un rideau, la porte basse de la cave, et plus loin la cuisine où Madame Odile s'est retirée. Une porte vitrée donne sur le jardin et sur la Tour des Quatre Cadrans, qui se découpe dans la brume."], "clips": ["1a4400cdbf53", "17b44a13705f", "ca538b3b6b0b"], "fx": [], "choices": [{"t": "Examiner de près les horloges.", "to": "fin"}, {"t": "Entrer dans le salon.", "to": "fin"}, {"t": "Pousser la porte de l'atelier.", "to": "fin"}, {"t": "Monter à l'étage.", "to": "fin"}, {"t": "Aller trouver Madame Odile à la cuisine.", "to": "fin"}, {"t": "Sortir par la porte vitrée, vers le jardin et la tour.", "to": "fin"}, {"t": "Écarter le rideau et tenter la porte de la cave.", "to": "fin"}, {"t": "Renoncer. Quitter cette maison et rejoindre la gare à pied.", "to": "fin"}]}}}, "en": {"title": "The Clockmaker of Vauclair", "tagline": "Thirteen strokes rang out. There should only have been twelve.", "synopsis": "November 1893. A clockmaker summons you one night to Vauclair, a small town where every clock strikes thirteen. You have eight hours before dawn to understand what the Verdier house is hiding, and to decide what time is worth. Every room you explore costs you an hour: you cannot see everything.", "info": "Fantasy mystery · about 1 h 30 · 8 endings", "items": {"lanterne": "Dark lantern", "trousse": "Clockmaker's kit", "loupe": "Jeweler's loupe", "marteau": "Foundry hammer", "cle_cave": "Cellar key", "medaillon": "Élise's locket", "cle_regleur": "Regulator's key"}, "p": {"debut": {"place": "Vauclair, Clockmakers' Street", "paras": ["November 1893. The coach drops you at the end of Clockmakers' Street, in a fog that smells of soot and cold oil. It is ten o'clock at night. The driver does not climb down from his seat; he will not even look at the house.", "\"You're lucky, sir: in Vauclair, the night lasts longer than anywhere else.\"", "He whips his horses and vanishes. You are left alone with your automaton restorer's trunk and a letter folded in four.", "Above the rooftops, the dial of the Tower of the Four Dials shows seventeen minutes past three. It is wrong, of course. And yet something in you would like to believe it is not.", "The house of the clockmaker Anselme Verdier stands before you: tall, narrow, every window dark but one, at the very top."], "clips": ["685b0096b5f8", "7602574d2982", "b8b8af97c8df", "3c4bc3fbf6c1", "52fa43c106fa"], "fx": ["+item:lanterne", "+item:trousse"], "choices": [{"t": "Reread the letter by the light of your lantern.", "to": "lettre"}, {"t": "Knock on the door.", "to": "porte"}]}, "lettre": {"place": "Vauclair, Clockmakers' Street", "paras": ["You unfold the letter. It reached your workshop in Lyon three days ago, with a travel voucher and fifty francs in advance.", "\"Sir, I am told you can repair what others throw away. I have a mechanism that must not stop and has only a few hours left to live. Come before midnight. Do not listen to the strokes. — A. Verdier\"", "You have already read it twenty times. But tonight, under the flame, a detail leaps out at you. The signature is firm, angular, that of a man used to giving orders. The body of the letter, however, is traced in a round, careful hand, with looped \"l\"s and \"t\"s that are never crossed all the way.", "A schoolgirl's handwriting."], "clips": ["654f74830143", "c090d4cbaffc", "c8c3797170db", "1b5a28b370f6"], "fx": ["+clue:lettre_ecriture"], "choices": [{"t": "Put the letter away and knock on the door.", "to": "porte"}, {"t": "Step into the hall.", "to": "hall"}]}, "porte": {"place": "Verdier House", "paras": ["You have not finished raising your fist when the door opens. A woman stands in the doorway, a candlestick in her hand. She wears a housekeeper's apron, but under the cap her hair is waxen white and her face is hollowed like that of a very old lady. Only her gaze is young.", "\"Madame Odile,\" she says. \"The master was expecting you. Come in quickly, before you're seen. He went down to the cellar at noon and asked not to be disturbed under any circumstances. He said you would know what to do.\"", "She closes the door behind you and slides three bolts.", "\"One last thing, sir. At midnight, the house strikes. Don't count the strokes. It does nobody any good.\""], "clips": ["8f2b76de5e5f", "a5b9f7ee7ebb", "25f62aa872eb", "85743a68fafc"], "fx": [], "choices": [{"t": "Step into the hall.", "to": "hall"}, {"t": "Enter the parlor.", "to": "fin"}]}, "hall": {"place": "The hall", "paras": ["The hall is a forest of clocks. They hang on the walls, stand on the consoles, even sit in the corners of the ceiling: longcase clocks, marble clocks, weight-driven regulators, cuckoos. You count thirteen. All of them tick, and no two at the same rhythm, like rain that cannot make up its mind.", "And yet they all show the same hour.", "An oak staircase climbs to the upper floor. On the left, the door of the parlor; on the right, that of the workshop. At the back, behind a curtain, the low door to the cellar, and farther on the kitchen where Madame Odile has retired. A glass door opens onto the garden and onto the Tower of the Four Dials, which stands out in the mist."], "clips": ["a0b46ef5ed42", "527bf9abc506", "0b8960493714"], "fx": [], "choices": [{"t": "Examine the clocks up close.", "to": "fin"}, {"t": "Enter the parlor.", "to": "fin"}, {"t": "Push open the workshop door.", "to": "fin"}, {"t": "Go upstairs.", "to": "fin"}, {"t": "Go and find Madame Odile in the kitchen.", "to": "fin"}, {"t": "Go out through the glass door, toward the garden and the tower.", "to": "fin"}, {"t": "Pull back the curtain and try the cellar door.", "to": "fin"}, {"t": "Give up. Leave this house and walk to the station.", "to": "fin"}]}}}};
+var T={fr:{listen:'▶ Écouter la narration',pause:'❚❚ Pause',voice:'Voix :',f:'Narratrice',m:'Narrateur',lead:'Le début de l\'histoire, offert. Lisez ou écoutez, puis faites vos choix.',inv:'Dans votre malle :',
+ endTitle:'La suite vous attend dans l\'appli',endText:'Vous venez de franchir le seuil de la maison Verdier. Il vous reste huit heures avant l\'aube, plus de 70 scènes à explorer et 8 fins possibles. L\'Horloger de Vauclair est entièrement gratuit dans l\'appli Destinées.',
+ play:'Continuer sur Google Play',again:'Recommencer',more:'Découvrir Destinées',
+ foot:'Textes et voix assistés par IA. Destinées est une appli de Stéphane, développeur indépendant (OMStef26). <a href="/destinees/decouvrir.html">En savoir plus</a> · <a href="/">Accueil</a>',
+ doc:'Jouez gratuitement à L\'Horloger de Vauclair – Destinées'},
+ en:{listen:'▶ Listen to the narration',pause:'❚❚ Pause',voice:'Voice:',f:'Female',m:'Male',lead:'The beginning of the story, free. Read or listen, then make your choices.',inv:'In your trunk:',
+ endTitle:'The rest awaits you in the app',endText:'You have just crossed the threshold of the Verdier house. You have eight hours before dawn, more than 70 scenes to explore and 8 possible endings. The Clockmaker of Vauclair is completely free in the Destinées app.',
+ play:'Continue on Google Play',again:'Start over',more:'Discover Destinées',
+ foot:'Text and voices AI-assisted. Destinées is an app by Stéphane, an independent developer (OMStef26). <a href="/destinees/decouvrir.html">Learn more</a> · <a href="/">Home</a>',
+ doc:'Play The Clockmaker of Vauclair for free – Destinées'}};
+var PLAY='https://play.google.com/store/apps/details?id=fr.omstef26.destinees';
+var lang,voice='f',cur='debut',inv=[],audio=new Audio(),qi=0,playing=false,want=false;
+function $(i){return document.getElementById(i)}
+function setLang(l){lang=l;document.documentElement.lang=l;var t=T[l],d=D[l];document.title=t.doc;
+ $('sw').textContent=l==='fr'?'English':'Français';$('title').textContent=d.title;$('tagline').textContent=d.tagline;$('lead').textContent=t.lead;
+ $('voicelbl').textContent=t.voice;document.querySelectorAll('[data-v]').forEach(function(b){b.textContent=t[b.dataset.v]});$('foot').innerHTML=t.foot;
+ try{localStorage.setItem('lang',l)}catch(e){} go(cur==='fin'?'fin':cur,true)}
+function stop(){audio.pause();playing=false;mark(-1);btn()}
+function btn(){$('listen').textContent=playing?T[lang].pause:T[lang].listen;$('listen').hidden=(cur==='fin');document.querySelector('.bar').style.display=(cur==='fin')?'none':''}
+function mark(i){document.querySelectorAll('#text p').forEach(function(p,j){p.classList.toggle('on',j===i)})}
+function playFrom(i){var p=D[lang].p[cur];if(!p||i>=p.clips.length){playing=false;mark(-1);btn();return}
+ qi=i;audio.src='/destinees/essai/'+lang+'/'+voice+'/'+p.clips[i]+'.mp3';mark(i);
+ audio.play().then(function(){playing=true;btn()}).catch(function(){playing=false;btn()})}
+audio.onended=function(){playFrom(qi+1)};
+$('listen').onclick=function(){if(playing){audio.pause();playing=false;want=false;btn()}else{want=true;if(audio.src&&audio.currentTime>0&&!audio.ended){audio.play();playing=true;btn()}else playFrom(0)}};
+document.querySelectorAll('[data-v]').forEach(function(b){b.onclick=function(){voice=b.dataset.v;document.querySelectorAll('[data-v]').forEach(function(x){x.setAttribute('aria-pressed',x===b)});if(playing)playFrom(qi)}});
+function go(k,keep){audio.pause();playing=false;cur=k;var t=T[lang],d=D[lang];
+ var tx=$('text'),ch=$('choices');tx.innerHTML='';ch.innerHTML='';
+ if(k==='fin'){$('place').textContent='';$('inv').hidden=true;
+  tx.innerHTML='<div class="end"><h2 style="color:var(--accent);font-weight:normal">'+t.endTitle+'</h2><p>'+t.endText+'</p><a class="btn" href="'+PLAY+'">'+t.play+'</a><br><button class="btn ghost" id="again" type="button">'+t.again+'</button><a class="btn ghost" href="/destinees/decouvrir.html">'+t.more+'</a></div>';
+  $('again').onclick=function(){inv=[];go('debut');window.scrollTo({top:$('book').offsetTop-10,behavior:'smooth'})};btn();return}
+ var p=d.p[k];if(!keep)(p.fx||[]).forEach(function(f){if(f.indexOf('+item:')===0){var it=f.slice(6);if(inv.indexOf(it)<0)inv.push(it)}});
+ $('place').textContent=p.place;
+ if(inv.length){$('inv').hidden=false;$('inv').innerHTML=t.inv+' '+inv.map(function(i){return '<span>'+(d.items[i]||i)+'</span>'}).join('')}else $('inv').hidden=true;
+ p.paras.forEach(function(s){var e=document.createElement('p');e.textContent=s;tx.appendChild(e)});
+ p.choices.forEach(function(c){var b=document.createElement('button');b.className='choice';b.type='button';b.textContent=c.t;
+  b.onclick=function(){go(c.to);window.scrollTo({top:$('book').offsetTop-10,behavior:'smooth'})};ch.appendChild(b)});
+ btn();if(want&&!keep)playFrom(0)}
+$('sw').onclick=function(){setLang(lang==='fr'?'en':'fr')};
+var s=null;try{s=localStorage.getItem('lang')}catch(e){}
+setLang(s||((navigator.language||'fr').toLowerCase().indexOf('fr')===0?'fr':'en'));
+</script>
+</body>
+</html>
