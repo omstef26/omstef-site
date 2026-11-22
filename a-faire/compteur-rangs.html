@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compteur de rangs de tricot gratuit en ligne – OMStef26</title>
+<meta name="description" content="Compteur de rangs gratuit pour le tricot et le crochet, directement dans le navigateur. Plusieurs projets, gros boutons, il se souvient de vos rangs.">
+<link rel="canonical" href="https://omstef26.fr/a-faire/compteur-rangs.html">
+<link rel="icon" href="/img/omstef26.png">
+<meta property="og:title" content="Compteur de rangs de tricot gratuit en ligne – OMStef26">
+<meta property="og:description" content="Compteur de rangs gratuit pour le tricot et le crochet, directement dans le navigateur. Plusieurs projets, gros boutons, il se souvient de vos rangs.">
+<meta property="og:image" content="https://omstef26.fr/img/og-omstef26.jpg">
+<meta property="og:url" content="https://omstef26.fr/a-faire/compteur-rangs.html">
+<meta property="og:type" content="article">
+<link rel="stylesheet" href="/css/site.css">
+
+</head>
+<body>
+<header><div class="wrap">
+  <a class="brand" href="/"><img src="/img/omstef26.png" alt="" width="32" height="32">OMStef26</a>
+  <nav>
+    <a href="/#applis">Les applis</a>
+    <a href="/guides/">Guides</a>
+    <a href="/a-faire/">À voir, à faire</a>
+    <a href="/journal/">Journal</a>
+    <a href="/idees/">Vos idées</a>
+  </nav>
+</div></header>
+<main><div class="wrap">
+<p class="crumbs"><a href="/">Accueil</a> › <a href="/a-faire/">À voir, à faire</a> › Compteur de rangs</p>
+<p class="kicker">À voir, à faire</p>
+<h1>Compteur de rangs</h1>
+<p class="lead">Un rang fini, une touche. Le compteur garde vos rangs pour chaque projet, même si vous fermez la page.</p>
+<div class="card" style="text-align:center">
+  <label for="proj" class="meta">Projet</label><br>
+  <select id="proj" style="font:inherit;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);max-width:100%"></select>
+  <button class="btn ghost" id="new" type="button" style="padding:8px 14px">+ Nouveau projet</button>
+  <div id="count" aria-live="polite" style="font-size:clamp(4rem,22vw,8rem);font-weight:800;line-height:1.1;margin:18px 0 6px;font-variant-numeric:tabular-nums">0</div>
+  <p class="meta" id="label">rangs</p>
+  <button class="btn" id="plus" type="button" style="font-size:1.6rem;padding:18px 46px">+1</button>
+  <button class="btn ghost" id="minus" type="button" style="font-size:1.3rem;padding:16px 26px">−1</button>
+  <p style="margin-top:18px"><button class="btn ghost" id="reset" type="button">Remettre à zéro</button> <button class="btn ghost" id="del" type="button">Supprimer ce projet</button></p>
+  <p class="meta">Astuce : sur ordinateur, la barre d'espace ajoute un rang.</p>
+</div>
+<div class="card appbox"><img src="/pointelle/img/icone.png" alt="" width="56" height="56" style="border-radius:14px"><div style="flex:1;min-width:200px">Envie de plus ? <strong>Pointelle</strong> compte vos rangs dans votre poche, suit vos grilles de point de croix et vos fils.</div><a class="btn" href="/pointelle/decouvrir.html">Découvrir Pointelle</a></div>
+<script>
+(function(){
+ var K='omstef-compteur',st;try{st=JSON.parse(localStorage.getItem(K))}catch(e){}
+ if(!st||!st.p||!st.p.length)st={cur:0,p:[{n:'Mon tricot',c:0}]};
+ var $=function(i){return document.getElementById(i)},sel=$('proj');
+ function save(){try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}}
+ function draw(){sel.innerHTML='';st.p.forEach(function(p,i){var o=document.createElement('option');o.value=i;o.textContent=p.n;sel.appendChild(o)});
+  sel.value=st.cur;var c=st.p[st.cur].c;$('count').textContent=c;$('label').textContent=c>1?'rangs':'rang';save()}
+ function add(d){var p=st.p[st.cur];p.c=Math.max(0,p.c+d);draw();if(navigator.vibrate)navigator.vibrate(15)}
+ $('plus').onclick=function(){add(1)};$('minus').onclick=function(){add(-1)};
+ $('reset').onclick=function(){if(confirm('Remettre ce compteur à zéro ?')){st.p[st.cur].c=0;draw()}};
+ $('del').onclick=function(){if(st.p.length>1&&confirm('Supprimer ce projet ?')){st.p.splice(st.cur,1);st.cur=0;draw()}};
+ $('new').onclick=function(){var n=prompt('Nom du projet ?','Projet '+(st.p.length+1));if(n){st.p.push({n:n.slice(0,40),c:0});st.cur=st.p.length-1;draw()}};
+ sel.onchange=function(){st.cur=+sel.value;draw()};
+ document.addEventListener('keydown',function(e){if(e.code==='Space'&&e.target.tagName!=='SELECT'&&e.target.tagName!=='BUTTON'){e.preventDefault();add(1)}});
+ draw();
+})();
+</script>
+</div></main>
+<footer><div class="wrap">
+  © 2026 OMStef26 · Stéphane, développeur indépendant · <a href="mailto:contact@omstef26.fr">contact@omstef26.fr</a> · <a href="/mentions-legales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a>
+</div></footer>
+</body>
+</html>
