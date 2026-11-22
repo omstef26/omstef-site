@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://omstef26.fr/sitemap.xml
