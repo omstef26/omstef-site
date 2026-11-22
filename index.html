@@ -98,9 +98,10 @@ footer a{color:var(--muted)}
     <a class="brand" href="/"><img src="/img/omstef26.png" alt="" width="34" height="34">OMStef26</a>
     <nav>
       <a href="#applis"><span data-l="fr">Les applis</span><span data-l="en">Apps</span></a>
-      <a href="#astuces"><span data-l="fr">Astuces</span><span data-l="en">Tips</span></a>
-      <a href="#coulisses"><span data-l="fr">Les coulisses</span><span data-l="en">Behind the scenes</span></a>
-      <a href="#idees"><span data-l="fr">Vos idées</span><span data-l="en">Your ideas</span></a>
+      <a href="/a-faire/"><span data-l="fr">À voir, à faire</span><span data-l="en">Fun stuff</span></a>
+      <a href="/guides/"><span data-l="fr">Guides</span><span data-l="en">Guides</span></a>
+      <a href="/journal/"><span data-l="fr">Journal</span><span data-l="en">News</span></a>
+      <a href="/idees/"><span data-l="fr">Vos idées</span><span data-l="en">Your ideas</span></a>
       <button class="sw" type="button" id="sw">English</button>
     </nav>
   </div>
@@ -116,7 +117,7 @@ footer a{color:var(--muted)}
       <p class="lead" data-l="fr">Je suis développeur indépendant, seul derrière OMStef26. Chaque appli est née d'un besoin réel : lire ses mails au poignet, écouter la radio pendant une balade, compter ses rangs de tricot, ou se raconter une belle histoire le soir. Installez-vous, faites le tour, et dites-moi ce que vous en pensez.</p>
       <p class="lead" data-l="en">I'm an independent developer, the only person behind OMStef26. Every app started from a real need: reading email on your wrist, listening to the radio on a walk, counting knitting rows, or enjoying a good story in the evening. Have a look around, and tell me what you think.</p>
       <a class="btn" href="#applis"><span data-l="fr">Découvrir les applis</span><span data-l="en">See the apps</span></a>
-      <a class="btn ghost" href="#idees"><span data-l="fr">M'écrire</span><span data-l="en">Write to me</span></a>
+      <a class="btn ghost" href="/a-faire/"><span data-l="fr">À voir, à faire</span><span data-l="en" style="display:none"></span></a><a class="btn ghost" href="#idees" hidden><span data-l="fr">M'écrire</span><span data-l="en">Write to me</span></a>
       <ul class="promises">
         <li data-l="fr">Sans publicité</li><li data-l="en">No ads</li>
         <li data-l="fr">Sans abonnement</li><li data-l="en">No subscription</li>
@@ -194,6 +195,18 @@ footer a{color:var(--muted)}
     </div>
   </section>
 
+  <section id="a-faire" class="band">
+    <div class="wrap">
+      <p class="kicker" data-l="fr">À voir, à faire</p><p class="kicker" data-l="en">Fun stuff</p>
+      <h2 data-l="fr">Restez un moment, c'est offert</h2><h2 data-l="en">Stay a while, it's on the house</h2>
+      <div class="tips">
+        <a class="tip" href="/a-faire/radio-du-jour.html" style="text-decoration:none;color:inherit"><h3 data-l="fr">📻 La radio du jour</h3><h3 data-l="en">📻 Radio of the day</h3><p data-l="fr">Chaque jour, une station d'un autre pays à écouter ici même.</p><p data-l="en">Every day, a station from another country to listen to right here.</p></a>
+        <a class="tip" href="/a-faire/grilles-point-de-croix-gratuites.html" style="text-decoration:none;color:inherit"><h3 data-l="fr">🧵 Grilles de point de croix gratuites</h3><h3 data-l="en">🧵 Free cross-stitch charts</h3><p data-l="fr">Sapin, cœur, flocon : des motifs originaux à imprimer en PDF.</p><p data-l="en">Tree, heart, snowflake: original patterns to print as PDF.</p></a>
+        <a class="tip" href="/a-faire/compteur-rangs.html" style="text-decoration:none;color:inherit"><h3 data-l="fr">🧶 Compteur de rangs</h3><h3 data-l="en">🧶 Row counter</h3><p data-l="fr">Pour le tricot et le crochet, il se souvient de vos rangs.</p><p data-l="en">For knitting and crochet, it remembers your rows.</p></a>
+      </div>
+    </div>
+  </section>
+
   <section id="astuces">
     <div class="wrap">
       <p class="kicker" data-l="fr">Petites astuces</p><p class="kicker" data-l="en">Handy tips</p>
@@ -201,24 +214,25 @@ footer a{color:var(--muted)}
       <h2 data-l="en">Get more from your watch and your phone</h2>
       <p class="intro" data-l="fr">Des réponses aux questions qu'on me pose le plus souvent.</p>
       <p class="intro" data-l="en">Answers to the questions people ask me most.</p>
+      <p data-l="fr"><a href="/guides/">Tous les guides pas à pas →</a></p><p data-l="en"><a href="/guides/">All step-by-step guides (in French) →</a></p>
       <div class="tips">
         <div class="tip">
           <h3 data-l="fr">Lire Gmail sur sa montre sans le téléphone</h3><h3 data-l="en">Read Gmail on your watch without your phone</h3>
           <p data-l="fr">Gmail demande un « mot de passe d'application » pour les applis de messagerie. Il se crée en deux minutes dans votre compte Google, rubrique Sécurité. Ensuite, WatchMail relève vos mails directement depuis la montre.</p>
           <p data-l="en">Gmail asks for an "app password" for email apps. You can create one in two minutes in your Google account, under Security. WatchMail then fetches your mail straight from the watch.</p>
-          <p><a href="/watchmail/decouvrir.html">WatchMail →</a></p>
+          <p><a href="/guides/lire-mails-montre-wear-os.html">Le guide complet →</a></p>
         </div>
         <div class="tip">
           <h3 data-l="fr">Noter une tâche à la voix en marchant</h3><h3 data-l="en">Add a task by voice while walking</h3>
           <p data-l="fr">Dites simplement « acheter du pain demain » : NoTasTick comprend « demain », « ce soir » ou un jour de la semaine, et range la tâche dans Microsoft To Do.</p>
           <p data-l="en">Just say "buy bread tomorrow": NoTasTick understands "tomorrow", "tonight" or a weekday, and files the task in Microsoft To Do.</p>
-          <p><a href="/notastick/">NoTasTick →</a></p>
+          <p><a href="/guides/microsoft-to-do-onenote-montre-wear-os.html">Le guide complet →</a></p>
         </div>
         <div class="tip">
           <h3 data-l="fr">Ne plus jamais perdre son rang</h3><h3 data-l="en">Never lose your row again</h3>
           <p data-l="fr">Un rang terminé, une touche : Pointelle garde le compte pour chaque projet, même si vous en menez plusieurs de front.</p>
           <p data-l="en">One tap per finished row: Pointelle keeps count for each project, even when you have several on the go.</p>
-          <p><a href="/pointelle/decouvrir.html">Pointelle →</a></p>
+          <p><a href="/guides/compter-rangs-tricot-point-de-croix.html">Le guide complet →</a></p>
         </div>
       </div>
     </div>
@@ -258,6 +272,7 @@ footer a{color:var(--muted)}
         <p data-l="fr">Écrivez-moi, je réponds personnellement sous 5 jours. Une fonction vous manque ? Dites-le : les prochaines versions se décident d'après vos messages.</p>
         <p data-l="en">Write to me and I'll reply personally within 5 days. Missing a feature? Tell me: the next versions are shaped by your messages.</p>
         <a class="btn" href="mailto:contact@omstef26.fr">contact@omstef26.fr</a>
+        <a class="btn ghost" href="/idees/"><span data-l="fr">Proposer une idée</span><span data-l="en">Suggest an idea</span></a>
       </div>
     </div>
   </section>
