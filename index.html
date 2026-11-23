@@ -16,95 +16,120 @@
 {"@context":"https://schema.org","@type":"Organization","name":"OMStef26","url":"https://omstef26.fr/","logo":"https://omstef26.fr/img/omstef26.png","email":"contact@omstef26.fr",
  "founder":{"@type":"Person","name":"Stéphane"}}
 </script>
+<link rel="preload" href="/fonts/fredoka.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/site.css">
 <style>
-:root{
-  --bg:#f6f7fb; --surface:#fff; --text:#121a2b; --muted:#566074; --line:#e1e6ef;
-  --accent:#1e3a6e; --accent2:#e0893a; --ink:#fff; --hero:#eef2fb; --shadow:0 8px 24px rgba(18,26,43,.07);
-}
-@media (prefers-color-scheme:dark){
-  :root{--bg:#0c111a; --surface:#151c29; --text:#e9eef7; --muted:#9ba7bb; --line:#253044;
-        --accent:#8fb0ec; --accent2:#f0a45c; --ink:#0c111a; --hero:#111a2b; --shadow:none}
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-a{color:var(--accent)}
-img{max-width:100%}
-.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
-html[lang=fr] [data-l=en],html[lang=en] [data-l=fr]{display:none!important}
+.hero{position:relative;overflow:hidden;color:#fff;background:var(--night);padding:70px 0 120px}
+.aurora{position:absolute;inset:-20%;z-index:0;filter:blur(70px);opacity:.75}
+.aurora span{position:absolute;border-radius:50%;animation:drift 18s ease-in-out infinite}
+.aurora .a1{width:46vw;height:46vw;left:48%;top:-5%;background:#1fa58e;animation-duration:20s}
+.aurora .a2{width:36vw;height:36vw;left:2%;top:40%;background:#7a3fd1;animation-duration:24s;animation-delay:-6s}
+.aurora .a3{width:30vw;height:30vw;left:62%;top:52%;background:#e0577b;animation-duration:17s;animation-delay:-3s}
+.aurora .a4{width:22vw;height:22vw;left:30%;top:0;background:#f0a92a;opacity:.6;animation-duration:22s;animation-delay:-9s}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hello{display:inline-flex;align-items:center;gap:10px;font:600 1.1rem var(--head);color:var(--amber);margin:0 0 12px}
+.hello .wave-hand{display:inline-block;animation:wiggle 2.4s ease-in-out infinite;transform-origin:70% 80%}
+.hero h1{color:#fff;font-size:clamp(2.2rem,5.4vw,3.7rem);line-height:1.08;margin:0 0 18px}
+.hero .lead{color:#d5dcf0;font-size:1.13rem;max-width:560px}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin:26px 0 0;padding:0;list-style:none}
+.chips li{font-weight:700;font-size:.88rem;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 14px;backdrop-filter:blur(4px)}
+.orbit{position:relative;width:min(400px,80vw);aspect-ratio:1;justify-self:center}
+.orbit .ring{position:absolute;inset:0;border-radius:50%;border:1.5px dashed rgba(255,255,255,.18);animation:spin 60s linear infinite}
+.orbit .ring.r2{inset:18%;border-style:solid;border-color:rgba(255,255,255,.08);animation-duration:40s;animation-direction:reverse}
+.orbit .core{position:absolute;inset:33%;border-radius:30%;box-shadow:0 0 0 10px rgba(255,255,255,.05),0 0 80px 10px rgba(34,199,169,.45);animation:bob 6s ease-in-out infinite}
+.orbit .spin{position:absolute;inset:0;animation:spin 36s linear infinite}
+.orb{position:absolute;width:21%;height:auto;border-radius:24%;box-shadow:0 16px 30px -10px rgba(0,0,0,.6);animation:spin 36s linear infinite reverse}
+.o0{left:39.5%;top:-6%}.o1{left:86%;top:24%}.o2{left:72%;top:78%}.o3{left:7%;top:78%}.o4{left:-7%;top:24%}
+.wave{fill:var(--cream)}
 
-header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:10px;font-weight:750;text-decoration:none;color:var(--text)}
-.brand img{width:34px;height:34px;border-radius:9px}
-nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-nav a{text-decoration:none;color:var(--muted);font-size:.95rem}
-nav a:hover{color:var(--accent)}
-.sw{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:999px;padding:4px 12px;cursor:pointer;font:inherit;font-size:.85rem}
+section{padding:80px 0;position:relative}
+.head-c{text-align:center;max-width:720px;margin:0 auto 40px}
+.head-c h2{margin:0 0 10px}
+.head-c p{color:var(--muted);margin:0}
 
-.hero{background:var(--hero);border-bottom:1px solid var(--line)}
-.hero .wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:center;padding-top:56px;padding-bottom:56px}
-.hello{font-size:1.05rem;color:var(--accent2);font-weight:700;margin:0 0 6px}
-h1{font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1.12;margin:0 0 16px;letter-spacing:-.02em}
-.lead{color:var(--muted);font-size:1.1rem;margin:0 0 24px;max-width:560px}
-.hero .me{justify-self:center;width:min(240px,60vw);border-radius:28px;box-shadow:var(--shadow)}
-.btn{display:inline-block;background:var(--accent);color:var(--ink);padding:12px 22px;border-radius:12px;text-decoration:none;font-weight:650;margin:0 8px 8px 0}
-.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
-.promises{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;padding:0;list-style:none}
-.promises li{font-size:.88rem;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+.apps{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.app{position:relative;overflow:hidden;background:#fff;border-radius:28px;padding:30px 28px 24px;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .45s cubic-bezier(.3,1.6,.5,1),box-shadow .35s}
+.app:hover{transform:translateY(-10px) rotate(-.8deg);box-shadow:0 34px 60px -24px color-mix(in srgb,var(--app) 70%,#0d1833)}
+.app .blob{position:absolute;right:-60px;top:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle at 30% 30%,color-mix(in srgb,var(--app) 75%,#fff),var(--app));opacity:.22;transition:transform .6s cubic-bezier(.3,1.6,.5,1)}
+.app:hover .blob{transform:scale(1.35) translate(-20px,20px)}
+.app .ico{position:relative;width:84px;height:84px;border-radius:24px;box-shadow:0 16px 28px -12px color-mix(in srgb,var(--app) 80%,#000);transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.app:hover .ico{transform:rotate(-10deg) scale(1.1)}
+.app h3{font-size:1.65rem;margin:18px 0 0}
+.app .for{margin:0 0 12px;font-weight:700;font-size:.85rem;color:color-mix(in srgb,var(--app) 70%,#0d1833)}
+.app .desc{flex:1;margin:0 0 18px;color:#3d4766}
+.badge{position:absolute;top:22px;right:20px;font-size:.76rem;font-weight:800;border-radius:999px;padding:5px 12px;background:var(--app);color:var(--night);box-shadow:0 6px 16px -6px var(--app);animation:bob 4s ease-in-out infinite}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.links a{text-decoration:none;font-weight:800;font-size:.92rem;padding:8px 16px;border-radius:999px;transition:transform .25s cubic-bezier(.3,1.6,.5,1),background .2s}
+.links a.go{background:color-mix(in srgb,var(--app) 18%,#fff);color:var(--night)}
+.links a.play{background:var(--night);color:#fff}
+.links a:hover{transform:translateY(-2px) scale(1.04)}
+.app.coming{background:linear-gradient(160deg,#fff,#effcf8)}
 
-section{padding:56px 0}
-.kicker{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);margin:0 0 6px}
-h2{font-size:clamp(1.45rem,3vw,1.95rem);margin:0 0 10px;letter-spacing:-.01em}
-.intro{color:var(--muted);margin:0 0 26px;max-width:680px}
+.mq-wrap{overflow:hidden;padding:26px 0}
+.marquee{background:var(--amber);color:var(--night);overflow:hidden;padding:16px 0;transform:rotate(-1.5deg);margin:10px -10px;box-shadow:0 12px 30px -16px rgba(13,24,51,.5)}
+.marquee .track{display:flex;gap:40px;width:max-content;animation:slide 28s linear infinite;font:600 1.25rem var(--head);white-space:nowrap}
+.marquee .track span::after{content:"✦";margin-left:40px;color:#fff}
+@keyframes slide{to{transform:translateX(-50%)}}
 
-.apps{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
-.app{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column}
-.app .head{display:flex;gap:14px;align-items:center;margin-bottom:10px}
-.app .ico{width:56px;height:56px;border-radius:14px;flex:0 0 auto;object-fit:cover}
-.app .tile{display:grid;place-items:center;color:#fff;font-weight:800;font-size:1.5rem}
-.app h3{margin:0;font-size:1.2rem}
-.app .for{margin:0;font-size:.85rem;color:var(--muted)}
-.app p.desc{margin:0 0 14px;flex:1}
-.app .meta{font-size:.85rem;color:var(--muted);margin:0 0 14px}
-.badge{display:inline-block;font-size:.75rem;font-weight:700;border-radius:999px;padding:2px 10px;background:color-mix(in srgb,var(--accent2) 18%,transparent);color:var(--text)}
-.app .links a{font-weight:650;margin-right:14px}
+.cinema{background:var(--night);color:#fff;overflow:hidden}
+.cinema .head-c h2{color:#fff}.cinema .head-c p{color:#aeb9d8}
+.cinema .head-c a{color:var(--amber)}
+.screens{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));max-width:1000px;margin:0 auto 54px}
+.reel{display:flex;gap:28px;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px max(16px,calc(50vw - 560px)) 34px;scrollbar-width:thin;scrollbar-color:var(--teal) transparent}
+.reel-hint{text-align:center;color:#aeb9d8;font-size:.9rem;margin:-10px 0 0}
+.cinema .stars{opacity:.6}
 
-.band{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.tips{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.tip{border-left:4px solid var(--accent2);padding:4px 0 4px 16px}
-.tip h3{margin:0 0 6px;font-size:1.05rem}
-.tip p{margin:0 0 6px;color:var(--muted);font-size:.97rem}
+.fun{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.tile{position:relative;display:block;text-decoration:none;color:var(--night);border-radius:26px;padding:28px 24px;min-height:220px;overflow:hidden;box-shadow:var(--shadow);transition:transform .45s cubic-bezier(.3,1.6,.5,1),box-shadow .3s}
+.tile:hover{transform:translateY(-10px) rotate(1deg);box-shadow:var(--shadow-lg);color:var(--night)}
+.tile .emo{font-size:3.2rem;line-height:1;display:inline-block;transition:transform .3s}
+.tile:hover .emo{animation:wiggle .9s ease-in-out}
+.tile h3{margin:16px 0 6px;font-size:1.35rem}
+.tile p{margin:0;font-weight:600;opacity:.8}
+.tile .go{position:absolute;right:20px;bottom:18px;width:42px;height:42px;border-radius:50%;background:var(--night);color:#fff;display:grid;place-items:center;font-weight:900;transition:transform .3s}
+.tile:hover .go{transform:translateX(6px) rotate(-20deg)}
+.t1{background:linear-gradient(150deg,#ffe3a3,#f5b32e)}
+.t2{background:linear-gradient(150deg,#b8f5e6,#22c7a9)}
+.t3{background:linear-gradient(150deg,#ffd0dc,#ec6a8a)}
+.t4{background:linear-gradient(150deg,#ddd0ff,#8b5cf6);color:var(--night)}
 
-.videos{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-.videos iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:14px}
+.tips{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.tip{background:#fff;border-radius:24px;padding:24px;box-shadow:var(--shadow);border-top:6px solid var(--teal)}
+.tip:nth-child(2){border-color:var(--amber)}.tip:nth-child(3){border-color:var(--pink)}
+.tip h3{margin:0 0 8px;font-size:1.15rem}
+.tip p{margin:0 0 8px;color:var(--muted);font-size:.97rem}
+.tip p:last-child a{font-weight:800}
 
-.story{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow)}
-.card h3{margin-top:0}
-footer{padding:26px 0 44px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+.story{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.atelier{background:linear-gradient(135deg,#e9fbf6,#fff4e0);}
+.soon{background:var(--night);color:#e8edfb;border-radius:28px;padding:30px;box-shadow:var(--shadow-lg);transform:rotate(1.5deg)}
+.soon h3{color:#fff;margin-top:0}
+.soon li{margin:10px 0}
+.soon li::marker{content:"✦  ";color:var(--amber)}
+
+.contact{position:relative;overflow:hidden;max-width:820px;margin:0 auto;text-align:center;border-radius:34px;padding:50px 28px;color:#fff;background:linear-gradient(130deg,#16254d,#4a2b7a 55%,#c2496b)}
+.contact h2{color:#fff;margin:0 0 12px}
+.contact p{color:#e6e9f7;max-width:560px;margin:0 auto 22px}
+.contact .bubble{position:absolute;border-radius:50%;background:rgba(255,255,255,.1);animation:drift 12s ease-in-out infinite}
+
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-footer a{color:var(--muted)}
-@media (max-width:760px){
+@media (max-width:860px){
+  .hero{padding:44px 0 100px}
   .hero .wrap,.story{grid-template-columns:1fr}
-  .hero .me{grid-row:1;width:140px}
-  nav{margin-left:0;width:100%}
+  .orbit{grid-row:1;width:min(300px,78vw)}
+  .soon{transform:none}
+  section{padding:60px 0}
 }
-</style>
-<style>
-.yt,.yt-frame{display:block;width:100%;border:0;border-radius:14px;cursor:pointer;position:relative;background:#111 center/cover no-repeat;aspect-ratio:16/9;padding:0}
-.yt.v,.yt-frame.v{aspect-ratio:9/16;max-width:300px;margin:0 auto}
-.yt::after{content:"";position:absolute;left:50%;top:50%;width:68px;height:48px;margin:-24px 0 0 -34px;border-radius:12px;background:rgba(0,0,0,.72) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M8 5v14l11-7z'/%3E%3C/svg%3E") center/28px no-repeat}
-.yt:hover::after{background-color:#e00}
-.yt span{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;color:#fff;font:600 14px/1.3 system-ui,sans-serif;text-align:left;background:linear-gradient(transparent,rgba(0,0,0,.8));border-radius:0 0 14px 14px}
+@media (max-width:520px){.phone{width:220px}.app{padding:26px 22px 22px}}
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <a class="brand" href="/"><img src="/img/omstef26.png" alt="" width="34" height="34">OMStef26</a>
+    <a class="brand" href="/"><img src="/img/omstef26.png" alt="" width="36" height="36">OMStef26</a>
     <nav>
       <a href="#applis"><span data-l="fr">Les applis</span><span data-l="en">Apps</span></a>
+      <a href="#videos"><span data-l="fr">Vidéos</span><span data-l="en">Videos</span></a>
       <a href="/a-faire/"><span data-l="fr">À voir, à faire</span><span data-l="en">Fun stuff</span></a>
       <a href="/guides/"><span data-l="fr">Guides</span><span data-l="en">Guides</span></a>
       <a href="/journal/"><span data-l="fr">Journal</span><span data-l="en">News</span></a>
@@ -115,153 +140,178 @@ footer a{color:var(--muted)}
 </header>
 
 <div class="hero" id="top">
+  <div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span><span class="a4"></span></div>
+  <div class="stars" aria-hidden="true"></div>
   <div class="wrap">
     <div>
-      <p class="hello" data-l="fr">Bonjour et bienvenue !</p>
-      <p class="hello" data-l="en">Hello and welcome!</p>
-      <h1 data-l="fr">Moi, c'est Stéphane. Je crée des applis pour votre téléphone et votre montre.</h1>
-      <h1 data-l="en">I'm Stéphane. I make apps for your phone and your watch.</h1>
+      <p class="hello"><span class="wave-hand" aria-hidden="true">👋</span><span data-l="fr">Bonjour et bienvenue !</span><span data-l="en">Hello and welcome!</span></p>
+      <h1 data-l="fr">Moi, c'est Stéphane. Je crée des applis pour <span class="grad">votre téléphone et votre montre.</span></h1>
+      <h1 data-l="en">I'm Stéphane. I make apps for <span class="grad">your phone and your watch.</span></h1>
       <p class="lead" data-l="fr">Je suis développeur indépendant, seul derrière OMStef26. Chaque appli est née d'un besoin réel : lire ses mails au poignet, écouter la radio pendant une balade, compter ses rangs de tricot, ou se raconter une belle histoire le soir. Installez-vous, faites le tour, et dites-moi ce que vous en pensez.</p>
       <p class="lead" data-l="en">I'm an independent developer, the only person behind OMStef26. Every app started from a real need: reading email on your wrist, listening to the radio on a walk, counting knitting rows, or enjoying a good story in the evening. Have a look around, and tell me what you think.</p>
-      <a class="btn" href="#applis"><span data-l="fr">Découvrir les applis</span><span data-l="en">See the apps</span></a>
-      <a class="btn ghost" href="/a-faire/"><span data-l="fr">À voir, à faire</span><span data-l="en" style="display:none"></span></a><a class="btn ghost" href="#idees" hidden><span data-l="fr">M'écrire</span><span data-l="en">Write to me</span></a>
-      <ul class="promises">
-        <li data-l="fr">Sans publicité</li><li data-l="en">No ads</li>
-        <li data-l="fr">Sans abonnement</li><li data-l="en">No subscription</li>
-        <li data-l="fr">Vos données restent chez vous</li><li data-l="en">Your data stays yours</li>
-        <li data-l="fr">Réponse sous 5 jours</li><li data-l="en">Reply within 5 days</li>
+      <a class="btn pop" href="#applis"><span data-l="fr">Découvrir les applis</span><span data-l="en">See the apps</span> <span aria-hidden="true">→</span></a>
+      <a class="btn glass" href="/destinees/essayer.html"><span aria-hidden="true">📖</span> <span data-l="fr">Jouer une histoire</span><span data-l="en">Play a story</span></a>
+      <ul class="chips">
+        <li data-l="fr">🚫 Sans publicité</li><li data-l="en">🚫 No ads</li>
+        <li data-l="fr">💳 Sans abonnement</li><li data-l="en">💳 No subscription</li>
+        <li data-l="fr">🔒 Vos données restent chez vous</li><li data-l="en">🔒 Your data stays yours</li>
+        <li data-l="fr">💬 Réponse sous 5 jours</li><li data-l="en">💬 Reply within 5 days</li>
       </ul>
     </div>
-    <img class="me" src="/img/omstef26.png" alt="Logo OMStef26" width="240" height="240">
+    <div class="orbit" aria-hidden="true">
+      <div class="ring"></div><div class="ring r2"></div>
+      <img class="core" src="/img/omstef26.png" alt="" width="140" height="140">
+      <div class="spin"><img class="orb o0" src="/watchmail/img/icone.png" alt="" width="76" height="76"><img class="orb o1" src="/notastick/img/icone.png" alt="" width="76" height="76"><img class="orb o2" src="/hertzo/img/icone.png" alt="" width="76" height="76"><img class="orb o3" src="/pointelle/img/icone.png" alt="" width="76" height="76"><img class="orb o4" src="/destinees/img/icone.png" alt="" width="76" height="76"></div>
+    </div>
   </div>
+  <svg class="wave" style="position:absolute;bottom:-1px;left:0;height:90px;margin:0" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,95 480,0 720,30 C960,60 1200,95 1440,35 L1440,90 L0,90 Z"/></svg>
 </div>
 
-<main>
+<main class="wide" style="padding:0">
   <section id="applis">
     <div class="wrap">
-      <p class="kicker" data-l="fr">Les applis</p><p class="kicker" data-l="en">The apps</p>
-      <h2 data-l="fr">Cinq applis, cinq petites histoires</h2>
-      <h2 data-l="en">Five apps, five little stories</h2>
-      <p class="intro" data-l="fr">Toutes s'achètent une seule fois, sans abonnement ni publicité. Celles pour montre fonctionnent sur Wear OS, dont les Galaxy Watch.</p>
-      <p class="intro" data-l="en">Each one is a one-time purchase, with no subscription and no ads. The watch apps run on Wear OS, including Galaxy Watch.</p>
-
+      <div class="head-c reveal">
+        <p class="kicker" data-l="fr">Les applis</p><p class="kicker" data-l="en">The apps</p>
+        <h2 data-l="fr">Cinq applis, cinq petites histoires</h2>
+        <h2 data-l="en">Five apps, five little stories</h2>
+        <p data-l="fr">Toutes s'achètent une seule fois, sans abonnement ni publicité. Celles pour montre fonctionnent sur Wear OS, dont les Galaxy Watch.</p>
+        <p data-l="en">Each one is a one-time purchase, with no subscription and no ads. The watch apps run on Wear OS, including Galaxy Watch.</p>
+      </div>
       <div class="apps">
-        <article class="app">
-          <div class="head"><img class="ico" src="/watchmail/img/icone.png" alt="" width="56" height="56">
-            <div><h3>WatchMail</h3><p class="for" data-l="fr">Montre Wear OS + téléphone</p><p class="for" data-l="en">Wear OS watch + phone</p></div></div>
+        <article class="app reveal d0" style="--app:#3b82f6">
+          <div class="blob"></div>
+          <img class="ico" src="/watchmail/img/icone.png" alt="" width="84" height="84">
+          
+          <h3>WatchMail</h3>
+          <p class="for" data-l="fr">Montre Wear OS + téléphone</p><p class="for" data-l="en">Wear OS watch + phone</p>
           <p class="desc" data-l="fr">Vos mails au poignet, sans sortir le téléphone. Lisez, supprimez, déplacez, et tout se synchronise. Gmail, Yahoo, Orange et tous les comptes IMAP/POP3.</p>
           <p class="desc" data-l="en">Your email on your wrist, without taking out your phone. Read, delete, move, and everything stays in sync. Gmail, Yahoo and any IMAP/POP3 account.</p>
-          <p class="links"><a href="/watchmail/decouvrir.html"><span data-l="fr">Découvrir</span><span data-l="en">Learn more</span></a><a href="https://play.google.com/store/apps/details?id=fr.omstef26.watchmail">Google Play</a></p>
+          <p class="links"><a class="go" href="/watchmail/decouvrir.html"><span data-l="fr">Découvrir</span><span data-l="en">Learn more</span></a><a class="play" href="https://play.google.com/store/apps/details?id=fr.omstef26.watchmail"><span data-l="fr">Google Play</span><span data-l="en">Google Play</span></a></p>
         </article>
-
-        <article class="app">
-          <div class="head"><img class="ico" src="/notastick/img/icone.png" alt="" width="56" height="56">
-            <div><h3>NoTasTick</h3><p class="for" data-l="fr">Montre Wear OS + téléphone</p><p class="for" data-l="en">Wear OS watch + phone</p></div></div>
+        <article class="app reveal d1" style="--app:#f5a623">
+          <div class="blob"></div>
+          <img class="ico" src="/notastick/img/icone.png" alt="" width="84" height="84">
+          <span class="badge" data-l="fr">Prix de lancement jusqu'au 5 décembre</span><span class="badge" data-l="en">Launch price until December 5</span>
+          <h3>NoTasTick</h3>
+          <p class="for" data-l="fr">Montre Wear OS + téléphone</p><p class="for" data-l="en">Wear OS watch + phone</p>
           <p class="desc" data-l="fr">Vos tâches Microsoft To Do et vos notes OneNote, au poignet. Ajoutez une tâche à la voix : « demain », « ce soir »… La montre fonctionne même sans le téléphone.</p>
           <p class="desc" data-l="en">Your Microsoft To Do tasks and OneNote notes, on your wrist. Add a task by voice: "tomorrow", "tonight"… The watch works even without the phone.</p>
-          <p class="meta"><span class="badge" data-l="fr">Prix de lancement jusqu'au 5 décembre</span><span class="badge" data-l="en">Launch price until December 5</span></p>
-          <p class="links"><a href="/notastick/"><span data-l="fr">Découvrir</span><span data-l="en">Learn more</span></a><a href="https://play.google.com/store/apps/details?id=fr.omstef26.notastick">Google Play</a></p>
+          <p class="links"><a class="go" href="/notastick/"><span data-l="fr">Découvrir</span><span data-l="en">Learn more</span></a><a class="play" href="https://play.google.com/store/apps/details?id=fr.omstef26.notastick"><span data-l="fr">Google Play</span><span data-l="en">Google Play</span></a></p>
         </article>
-
-        <article class="app">
-          <div class="head"><img class="ico" src="/hertzo/img/icone.png" alt="" width="56" height="56">
-            <div><h3>Hertzo</h3><p class="for" data-l="fr">Montre Wear OS + téléphone</p><p class="for" data-l="en">Wear OS watch + phone</p></div></div>
+        <article class="app reveal d2" style="--app:#22c7a9">
+          <div class="blob"></div>
+          <img class="ico" src="/hertzo/img/icone.png" alt="" width="84" height="84">
+          <span class="badge" data-l="fr">Bientôt sur Google Play</span><span class="badge" data-l="en">Coming soon to Google Play</span>
+          <h3>Hertzo</h3>
+          <p class="for" data-l="fr">Montre Wear OS + téléphone</p><p class="for" data-l="en">Wear OS watch + phone</p>
           <p class="desc" data-l="fr">Les radios du monde entier sur votre montre. Des milliers de stations, vos favoris partagés entre montre et téléphone, et l'enregistrement pour écouter plus tard, hors connexion.</p>
           <p class="desc" data-l="en">Radio stations from all over the world on your watch. Thousands of stations, favourites shared between watch and phone, and recording to listen later, offline.</p>
-          <p class="meta"><span class="badge" data-l="fr">Bientôt sur Google Play</span><span class="badge" data-l="en">Coming soon to Google Play</span></p>
-          <p class="links"><a href="/hertzo/decouvrir.html"><span data-l="fr">Découvrir</span><span data-l="en">Learn more</span></a></p>
+          <p class="links"><a class="go" href="/hertzo/decouvrir.html"><span data-l="fr">Découvrir</span><span data-l="en">Learn more</span></a><a class="play" href="/a-faire/radio-du-jour.html"><span data-l="fr">Radio du jour</span><span data-l="en">Radio of the day</span></a></p>
         </article>
-
-        <article class="app">
-          <div class="head"><img class="ico" src="/pointelle/img/icone.png" alt="" width="56" height="56">
-            <div><h3>Pointelle</h3><p class="for" data-l="fr">Téléphone et tablette</p><p class="for" data-l="en">Phone and tablet</p></div></div>
+        <article class="app reveal d0" style="--app:#ec6a8a">
+          <div class="blob"></div>
+          <img class="ico" src="/pointelle/img/icone.png" alt="" width="84" height="84">
+          
+          <h3>Pointelle</h3>
+          <p class="for" data-l="fr">Téléphone et tablette</p><p class="for" data-l="en">Phone and tablet</p>
           <p class="desc" data-l="fr">Le compagnon du point de croix et du tricot. Importez votre grille, cochez vos points, comptez vos rangs, suivez vos fils et vos projets.</p>
           <p class="desc" data-l="en">The companion for cross-stitch and knitting. Import your chart, tick off your stitches, count your rows, track your threads and projects.</p>
-          <p class="links"><a href="/pointelle/decouvrir.html"><span data-l="fr">Découvrir</span><span data-l="en">Learn more</span></a><a href="https://play.google.com/store/apps/details?id=fr.omstef26.pointelle">Google Play</a></p>
+          <p class="links"><a class="go" href="/pointelle/decouvrir.html"><span data-l="fr">Découvrir</span><span data-l="en">Learn more</span></a><a class="play" href="https://play.google.com/store/apps/details?id=fr.omstef26.pointelle"><span data-l="fr">Google Play</span><span data-l="en">Google Play</span></a></p>
         </article>
-
-        <article class="app">
-          <div class="head"><img class="ico" src="/destinees/img/icone.png" alt="" width="56" height="56">
-            <div><h3>Destinées</h3><p class="for" data-l="fr">Téléphone et tablette</p><p class="for" data-l="en">Phone and tablet</p></div></div>
+        <article class="app reveal d1" style="--app:#d9a441">
+          <div class="blob"></div>
+          <img class="ico" src="/destinees/img/icone.png" alt="" width="84" height="84">
+          <span class="badge" data-l="fr">1re histoire gratuite</span><span class="badge" data-l="en">First story free</span>
+          <h3>Destinées</h3>
+          <p class="for" data-l="fr">Téléphone et tablette</p><p class="for" data-l="en">Phone and tablet</p>
           <p class="desc" data-l="fr">Des livres dont vous êtes le héros, à lire ou à écouter. Cinq mystères où chaque choix compte. La première histoire, L'Horloger de Vauclair, est offerte.</p>
           <p class="desc" data-l="en">Choose-your-own-adventure books to read or listen to. Five mysteries where every choice matters. The first story, The Clockmaker of Vauclair, is free.</p>
-          <p class="meta"><span class="badge" data-l="fr">1re histoire gratuite</span><span class="badge" data-l="en">First story free</span></p>
-          <p class="links"><a href="/destinees/essayer.html"><span data-l="fr">Jouer gratuitement</span><span data-l="en">Play for free</span></a><a href="/destinees/decouvrir.html"><span data-l="fr">Découvrir</span><span data-l="en">Learn more</span></a><a href="https://play.google.com/store/apps/details?id=fr.omstef26.destinees">Google Play</a></p>
+          <p class="links"><a class="go" href="/destinees/essayer.html"><span data-l="fr">Jouer gratuitement</span><span data-l="en">Play for free</span></a><a class="go" href="/destinees/decouvrir.html"><span data-l="fr">Découvrir</span><span data-l="en">Learn more</span></a><a class="play" href="https://play.google.com/store/apps/details?id=fr.omstef26.destinees"><span data-l="fr">Google Play</span><span data-l="en">Google Play</span></a></p>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="videos" class="band">
+  <div class="mq-wrap" aria-hidden="true"><div class="marquee"><div class="track">
+    <span data-l="fr">Fait main en France</span><span data-l="fr">Sans publicité</span><span data-l="fr">Payé une fois, à vous pour toujours</span><span data-l="fr">Testé sur ma propre montre</span><span data-l="fr">Vos idées font les prochaines versions</span><span data-l="fr">Fait main en France</span><span data-l="fr">Sans publicité</span><span data-l="fr">Payé une fois, à vous pour toujours</span><span data-l="fr">Testé sur ma propre montre</span><span data-l="fr">Vos idées font les prochaines versions</span>
+    <span data-l="en">Handmade in France</span><span data-l="en">No ads</span><span data-l="en">Pay once, yours forever</span><span data-l="en">Tested on my own watch</span><span data-l="en">Your ideas shape the next versions</span><span data-l="en">Handmade in France</span><span data-l="en">No ads</span><span data-l="en">Pay once, yours forever</span><span data-l="en">Tested on my own watch</span><span data-l="en">Your ideas shape the next versions</span>
+  </div></div></div>
+
+  <section id="videos" class="cinema">
+    <div class="stars" aria-hidden="true"></div>
+    <div class="wrap" style="position:relative;z-index:1">
+      <div class="head-c reveal">
+        <p class="kicker" style="--app:var(--amber)" data-l="fr">🎬 Le petit cinéma</p><p class="kicker" style="--app:var(--amber)" data-l="en">🎬 The little cinema</p>
+        <h2 data-l="fr">Voyez les applis en action</h2><h2 data-l="en">See the apps in action</h2>
+        <p><a href="https://www.youtube.com/channel/UCfpJgPyinhnf5XL7kG3nnSA"><span data-l="fr">Toutes les vidéos sur la chaîne YouTube OMStef26 →</span><span data-l="en">All videos on the OMStef26 YouTube channel →</span></a></p>
+      </div>
+      <div class="screens"><figure class="screen reveal d0" data-l="fr"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/TTa1qAgdlmU?rel=0&amp;modestbranding=1" title="WatchMail : vos mails sur la montre" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><figcaption>WatchMail : vos mails sur la montre</figcaption></figure><figure class="screen reveal d0" data-l="en"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/YF-Pbw2lFHQ?rel=0&amp;modestbranding=1" title="WatchMail: email on your watch" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><figcaption>WatchMail: email on your watch</figcaption></figure><figure class="screen reveal d1" data-l="fr"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/aXKd4Ns8wLY?rel=0&amp;modestbranding=1" title="NoTasTick : To Do et OneNote sur la montre" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><figcaption>NoTasTick : To Do et OneNote sur la montre</figcaption></figure><figure class="screen reveal d1" data-l="en"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/q--kb3n1lko?rel=0&amp;modestbranding=1" title="NoTasTick: To Do and OneNote on your watch" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><figcaption>NoTasTick: To Do and OneNote on your watch</figcaption></figure></div>
+    </div>
+    <div class="reel reveal" style="position:relative;z-index:1"><figure class="phone"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/7YmrVN1SLNk?rel=0&amp;modestbranding=1" title="Destinées · L'Horloger de Vauclair" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><figcaption>Destinées · L'Horloger de Vauclair</figcaption></figure><figure class="phone"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/UF4Ny5DavSE?rel=0&amp;modestbranding=1" title="Pointelle · point de croix et tricot" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><figcaption>Pointelle · point de croix et tricot</figcaption></figure><figure class="phone"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/8Oc8xbHucAc?rel=0&amp;modestbranding=1" title="Destinées · Le Phare" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><figcaption>Destinées · Le Phare</figcaption></figure><figure class="phone"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/m6yBaz4G6L0?rel=0&amp;modestbranding=1" title="Destinées · La Diligence" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><figcaption>Destinées · La Diligence</figcaption></figure><figure class="phone"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/diI-SKeqB6A?rel=0&amp;modestbranding=1" title="Destinées · L'Île" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><figcaption>Destinées · L'Île</figcaption></figure><figure class="phone"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Q5YWTun93HE?rel=0&amp;modestbranding=1" title="Destinées · Le Masque" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><figcaption>Destinées · Le Masque</figcaption></figure></div>
+    <p class="reel-hint" data-l="fr">← Faites défiler pour voir toutes les vidéos →</p><p class="reel-hint" data-l="en">← Scroll to see all the videos →</p>
+  </section>
+
+  <section id="a-faire">
     <div class="wrap">
-      <p class="kicker" data-l="fr">En vidéo</p><p class="kicker" data-l="en">Videos</p>
-      <h2 data-l="fr">Voyez les applis en action</h2><h2 data-l="en">See the apps in action</h2>
-      <p class="intro"><a href="https://www.youtube.com/channel/UCfpJgPyinhnf5XL7kG3nnSA"><span data-l="fr">Toutes les vidéos sur la chaîne YouTube OMStef26 →</span><span data-l="en">All videos on the OMStef26 YouTube channel →</span></a></p>
-      <div class="videos" style="align-items:start">
-        <div><button type="button" class="yt" data-id="TTa1qAgdlmU" aria-label="WatchMail : vos mails sur la montre" style="background-image:url(https://i.ytimg.com/vi/TTa1qAgdlmU/hqdefault.jpg)"><span>WatchMail : vos mails sur la montre</span></button></div>
-        <div><button type="button" class="yt" data-id="aXKd4Ns8wLY" aria-label="NoTasTick : To Do et OneNote sur la montre" style="background-image:url(https://i.ytimg.com/vi/aXKd4Ns8wLY/hqdefault.jpg)"><span>NoTasTick : To Do et OneNote sur la montre</span></button></div>
-        <div><button type="button" class="yt v" data-id="7YmrVN1SLNk" aria-label="Destinées : L'Horloger de Vauclair" style="background-image:url(https://i.ytimg.com/vi/7YmrVN1SLNk/hqdefault.jpg)"><span>Destinées : L'Horloger de Vauclair</span></button></div>
-        <div><button type="button" class="yt v" data-id="UF4Ny5DavSE" aria-label="Pointelle : point de croix et tricot" style="background-image:url(https://i.ytimg.com/vi/UF4Ny5DavSE/hqdefault.jpg)"><span>Pointelle : point de croix et tricot</span></button></div>
+      <div class="head-c reveal">
+        <p class="kicker" style="--app:var(--pink)" data-l="fr">À voir, à faire</p><p class="kicker" style="--app:var(--pink)" data-l="en">Fun stuff</p>
+        <h2 data-l="fr">Restez un moment, c'est offert</h2><h2 data-l="en">Stay a while, it's on the house</h2>
+      </div>
+      <div class="fun">
+        <a class="tile t1 reveal" href="/destinees/essayer.html"><span class="emo">📖</span><h3 data-l="fr">Jouez à L'Horloger de Vauclair</h3><h3 data-l="en">Play The Clockmaker of Vauclair</h3><p data-l="fr">Le début d'un livre dont vous êtes le héros, narré à voix haute.</p><p data-l="en">The opening of a choose-your-own-adventure story, read aloud.</p><span class="go">→</span></a>
+        <a class="tile t2 reveal d1" href="/a-faire/radio-du-jour.html"><span class="emo">📻</span><h3 data-l="fr">La radio du jour</h3><h3 data-l="en">Radio of the day</h3><p data-l="fr">Chaque jour, une station d'un autre pays à écouter ici même.</p><p data-l="en">Every day, a station from another country to listen to right here.</p><span class="go">→</span></a>
+        <a class="tile t3 reveal d2" href="/a-faire/grilles-point-de-croix-gratuites.html"><span class="emo">🧵</span><h3 data-l="fr">Grilles de point de croix gratuites</h3><h3 data-l="en">Free cross-stitch charts</h3><p data-l="fr">Sapin, cœur, flocon : des motifs originaux à imprimer en PDF.</p><p data-l="en">Tree, heart, snowflake: original patterns to print as PDF.</p><span class="go">→</span></a>
+        <a class="tile t4 reveal d3" href="/a-faire/compteur-rangs.html"><span class="emo">🧶</span><h3 data-l="fr">Compteur de rangs</h3><h3 data-l="en">Row counter</h3><p data-l="fr">Pour le tricot et le crochet, il se souvient de vos rangs.</p><p data-l="en">For knitting and crochet, it remembers your rows.</p><span class="go">→</span></a>
       </div>
     </div>
   </section>
 
-  <section id="a-faire" class="band">
+  <section id="astuces" style="padding-top:20px">
     <div class="wrap">
-      <p class="kicker" data-l="fr">À voir, à faire</p><p class="kicker" data-l="en">Fun stuff</p>
-      <h2 data-l="fr">Restez un moment, c'est offert</h2><h2 data-l="en">Stay a while, it's on the house</h2>
-      <div class="tips">
-        <a class="tip" href="/destinees/essayer.html" style="text-decoration:none;color:inherit"><h3 data-l="fr">📖 Jouez à L'Horloger de Vauclair</h3><h3 data-l="en">📖 Play The Clockmaker of Vauclair</h3><p data-l="fr">Le début d'un livre dont vous êtes le héros, narré à voix haute.</p><p data-l="en">The opening of a choose-your-own-adventure story, read aloud.</p></a>
-        <a class="tip" href="/a-faire/radio-du-jour.html" style="text-decoration:none;color:inherit"><h3 data-l="fr">📻 La radio du jour</h3><h3 data-l="en">📻 Radio of the day</h3><p data-l="fr">Chaque jour, une station d'un autre pays à écouter ici même.</p><p data-l="en">Every day, a station from another country to listen to right here.</p></a>
-        <a class="tip" href="/a-faire/grilles-point-de-croix-gratuites.html" style="text-decoration:none;color:inherit"><h3 data-l="fr">🧵 Grilles de point de croix gratuites</h3><h3 data-l="en">🧵 Free cross-stitch charts</h3><p data-l="fr">Sapin, cœur, flocon : des motifs originaux à imprimer en PDF.</p><p data-l="en">Tree, heart, snowflake: original patterns to print as PDF.</p></a>
-        <a class="tip" href="/a-faire/compteur-rangs.html" style="text-decoration:none;color:inherit"><h3 data-l="fr">🧶 Compteur de rangs</h3><h3 data-l="en">🧶 Row counter</h3><p data-l="fr">Pour le tricot et le crochet, il se souvient de vos rangs.</p><p data-l="en">For knitting and crochet, it remembers your rows.</p></a>
+      <div class="head-c reveal">
+        <p class="kicker" data-l="fr">Petites astuces</p><p class="kicker" data-l="en">Handy tips</p>
+        <h2 data-l="fr">Tirer le meilleur de votre montre et de votre téléphone</h2>
+        <h2 data-l="en">Get more from your watch and your phone</h2>
+        <p data-l="fr">Des réponses aux questions qu'on me pose le plus souvent. <a href="/guides/">Tous les guides pas à pas →</a></p>
+        <p data-l="en">Answers to the questions people ask me most. <a href="/guides/">All step-by-step guides (in French) →</a></p>
       </div>
-    </div>
-  </section>
-
-  <section id="astuces">
-    <div class="wrap">
-      <p class="kicker" data-l="fr">Petites astuces</p><p class="kicker" data-l="en">Handy tips</p>
-      <h2 data-l="fr">Tirer le meilleur de votre montre et de votre téléphone</h2>
-      <h2 data-l="en">Get more from your watch and your phone</h2>
-      <p class="intro" data-l="fr">Des réponses aux questions qu'on me pose le plus souvent.</p>
-      <p class="intro" data-l="en">Answers to the questions people ask me most.</p>
-      <p data-l="fr"><a href="/guides/">Tous les guides pas à pas →</a></p><p data-l="en"><a href="/guides/">All step-by-step guides (in French) →</a></p>
       <div class="tips">
-        <div class="tip">
+        <div class="tip reveal">
           <h3 data-l="fr">Lire Gmail sur sa montre sans le téléphone</h3><h3 data-l="en">Read Gmail on your watch without your phone</h3>
           <p data-l="fr">Gmail demande un « mot de passe d'application » pour les applis de messagerie. Il se crée en deux minutes dans votre compte Google, rubrique Sécurité. Ensuite, WatchMail relève vos mails directement depuis la montre.</p>
           <p data-l="en">Gmail asks for an "app password" for email apps. You can create one in two minutes in your Google account, under Security. WatchMail then fetches your mail straight from the watch.</p>
           <p><a href="/guides/lire-mails-montre-wear-os.html">Le guide complet →</a></p>
         </div>
-        <div class="tip">
+        <div class="tip reveal">
           <h3 data-l="fr">Noter une tâche à la voix en marchant</h3><h3 data-l="en">Add a task by voice while walking</h3>
           <p data-l="fr">Dites simplement « acheter du pain demain » : NoTasTick comprend « demain », « ce soir » ou un jour de la semaine, et range la tâche dans Microsoft To Do.</p>
           <p data-l="en">Just say "buy bread tomorrow": NoTasTick understands "tomorrow", "tonight" or a weekday, and files the task in Microsoft To Do.</p>
           <p><a href="/guides/microsoft-to-do-onenote-montre-wear-os.html">Le guide complet →</a></p>
         </div>
-        <div class="tip">
+        <div class="tip reveal">
           <h3 data-l="fr">Ne plus jamais perdre son rang</h3><h3 data-l="en">Never lose your row again</h3>
           <p data-l="fr">Un rang terminé, une touche : Pointelle garde le compte pour chaque projet, même si vous en menez plusieurs de front.</p>
           <p data-l="en">One tap per finished row: Pointelle keeps count for each project, even when you have several on the go.</p>
           <p><a href="/guides/compter-rangs-tricot-point-de-croix.html">Le guide complet →</a></p>
         </div>
+      
       </div>
     </div>
   </section>
 
-  <section id="coulisses" class="band">
+  <section id="coulisses" class="atelier">
     <div class="wrap story">
-      <div>
+      <div class="reveal">
         <p class="kicker" data-l="fr">Les coulisses</p><p class="kicker" data-l="en">Behind the scenes</p>
-        <h2 data-l="fr">Un atelier, pas une usine</h2><h2 data-l="en">A workshop, not a factory</h2>
+        <h2 data-l="fr" style="margin-top:0">Un atelier, pas une usine</h2><h2 data-l="en" style="margin-top:0">A workshop, not a factory</h2>
         <p data-l="fr">OMStef26, c'est une seule personne, installée en France. J'écris le code, je teste chaque version sur ma propre montre et mon téléphone, et je lis chaque message que vous m'envoyez.</p>
         <p data-l="en">OMStef26 is one person, based in France. I write the code, test every version on my own watch and phone, and read every message you send me.</p>
         <p data-l="fr">Mes applis ne contiennent ni publicité ni pisteur. Vous payez une fois, l'appli est à vous, et elle continue de s'améliorer grâce à vos retours.</p>
         <p data-l="en">My apps contain no ads and no trackers. You pay once, the app is yours, and it keeps getting better thanks to your feedback.</p>
+        <a class="btn ghost" href="/journal/"><span data-l="fr">Lire le journal du développeur</span><span data-l="en">Read the developer's diary</span></a>
       </div>
-      <div class="card">
-        <h3 data-l="fr">Ce qui se prépare</h3><h3 data-l="en">What's coming</h3>
+      <div class="soon reveal d2">
+        <h3 data-l="fr">✨ Ce qui se prépare</h3><h3 data-l="en">✨ What's coming</h3>
         <ul data-l="fr">
           <li>Hertzo arrive très bientôt sur Google Play.</li>
           <li>De nouvelles histoires pour Destinées.</li>
@@ -278,13 +328,15 @@ footer a{color:var(--muted)}
 
   <section id="idees">
     <div class="wrap">
-      <div class="card" style="max-width:680px;margin:0 auto;text-align:center">
+      <div class="contact reveal">
+        <span class="bubble" style="width:160px;height:160px;left:-40px;top:-50px"></span>
+        <span class="bubble" style="width:110px;height:110px;right:-20px;bottom:-30px;animation-delay:-5s"></span>
         <h2 data-l="fr">Une idée, une question, un souci ?</h2>
         <h2 data-l="en">An idea, a question, a problem?</h2>
         <p data-l="fr">Écrivez-moi, je réponds personnellement sous 5 jours. Une fonction vous manque ? Dites-le : les prochaines versions se décident d'après vos messages.</p>
         <p data-l="en">Write to me and I'll reply personally within 5 days. Missing a feature? Tell me: the next versions are shaped by your messages.</p>
-        <a class="btn" href="mailto:contact@omstef26.fr">contact@omstef26.fr</a>
-        <a class="btn ghost" href="/idees/"><span data-l="fr">Proposer une idée</span><span data-l="en">Suggest an idea</span></a>
+        <a class="btn light" href="mailto:contact@omstef26.fr">✉️ contact@omstef26.fr</a>
+        <a class="btn glass" href="/idees/"><span data-l="fr">Proposer une idée</span><span data-l="en">Suggest an idea</span></a>
       </div>
     </div>
   </section>
@@ -312,6 +364,6 @@ footer a{color:var(--muted)}
   set(s||((navigator.language||'fr').toLowerCase().indexOf('fr')===0?'fr':'en'));
 })();
 </script>
-<script src="/js/video.js" defer></script>
+<script src="/js/site.js" defer></script>
 </body>
 </html>

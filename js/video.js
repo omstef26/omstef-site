@@ -1,12 +1,11 @@
-// Vidéo YouTube chargée seulement au clic (aucune connexion à YouTube avant).
+// Vidéos YouTube : lecteurs intégrés (youtube-nocookie), chargés quand on approche de la vidéo.
 document.querySelectorAll('.yt').forEach(function(el){
-  var id=el.dataset.id;
-  el.addEventListener('click',function(){
-    var f=document.createElement('iframe');
-    f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';
-    f.title=el.getAttribute('aria-label')||'Vidéo';
-    f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
-    f.allowFullscreen=true;
-    el.replaceWith(f);f.className=el.className.replace('yt','yt-frame');
-  });
+  var f=document.createElement('iframe');
+  f.src='https://www.youtube-nocookie.com/embed/'+el.dataset.id+'?rel=0&modestbranding=1';
+  f.title=el.getAttribute('aria-label')||'Vidéo';
+  f.loading='lazy';
+  f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
+  f.allowFullscreen=true;
+  f.className=el.className.replace('yt','yt-frame');
+  el.replaceWith(f);
 });

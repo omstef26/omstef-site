@@ -10,46 +10,40 @@
 <meta property="og:description" content="Des milliers de radios du monde entier sur votre montre Wear OS et votre téléphone. Sans publicité, sans compte.">
 <meta property="og:image" content="https://omstef26.fr/img/og-omstef26.jpg">
 <meta property="og:type" content="website">
-<style>
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;max-width:860px;margin:0 auto;padding:24px 16px 48px;color:#1c1b1f;background:#f5fbfa}
-h1{font-size:2rem;color:#0f8a7e;margin:0}h2{font-size:1.25rem;margin-top:2rem;color:#0f8a7e}
-a{color:#0f8a7e}
-.top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.top img{width:72px;height:72px;border-radius:16px}
-.lead{font-size:1.1rem;margin:14px 0 18px}
-.btn{display:inline-block;background:#0f8a7e;color:#fff !important;text-decoration:none;font-weight:600;padding:13px 26px;border-radius:999px;box-shadow:0 3px 10px rgba(29,95,168,.3)}
-.btn:hover{background:#0b6b62}
-.price{display:block;margin-top:8px;font-size:.92rem;color:#5b6570}
-.card{background:#fff;border:1px solid #cfe6e2;border-radius:12px;padding:12px 18px;margin:12px 0}
-.card ul{margin:6px 0;padding-left:1.2em}
-.shots{display:flex;gap:12px;overflow-x:auto;padding:6px 2px 14px;scroll-snap-type:x mandatory}
-.shots img{height:440px;width:auto;border-radius:14px;border:1px solid #cfe6e2;scroll-snap-align:start;flex:0 0 auto}
-.sw{position:absolute;top:14px;right:16px}
-.sw button{border:1px solid #cfe6e2;background:#fff;border-radius:999px;padding:6px 14px;cursor:pointer}
-[data-l]{display:none}html[lang=fr] [data-l=fr],html[lang=en] [data-l=en]{display:revert}
-footer{margin-top:36px;font-size:.9rem;color:#777}
-@media (prefers-color-scheme:dark){body{background:#12151a;color:#e3e6ea}.card{background:#1a1f27;border-color:#24443f}.sw button{background:#1a1f27;color:#e3e6ea;border-color:#24443f}.shots img{border-color:#24443f}h1,h2,a{color:#6fd3c5}.price,footer{color:#9aa6b3}}
-</style>
+<link rel="icon" href="/img/omstef26.png">
+<link rel="stylesheet" href="/css/site.css">
 </head>
-<body>
-<div class="sw"><button type="button" id="sw">English</button></div>
-<p class="back"><a href="/">← OMStef26</a></p>
-
-<div class="top">
-  <img src="/hertzo/img/icone.png" alt="" width="72" height="72" style="border-radius:16px">
-  <h1>Hertzo</h1>
-</div>
-
+<body class="app-page" style="--app:#22c7a9">
+<header>
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/img/omstef26.png" alt="" width="36" height="36">OMStef26</a>
+    <nav>
+      <a href="/#applis"><span data-l="fr">Les applis</span><span data-l="en">Apps</span></a>
+      <a href="/#videos"><span data-l="fr">Vidéos</span><span data-l="en">Videos</span></a>
+      <a href="/a-faire/"><span data-l="fr">À voir, à faire</span><span data-l="en">Fun stuff</span></a>
+      <a href="/guides/"><span data-l="fr">Guides</span><span data-l="en">Guides</span></a>
+      <a href="/idees/"><span data-l="fr">Vos idées</span><span data-l="en">Your ideas</span></a>
+      <button class="sw" type="button" id="sw">English</button>
+    </nav>
+  </div>
+</header>
+<div class="apphero"><div class="stars" aria-hidden="true"></div><div class="wrap">
+<p class="crumbs" style="color:#aeb9d8"><a href="/" style="color:#aeb9d8">OMStef26</a> › <span data-l="fr">Les applis</span><span data-l="en">Apps</span></p>
+<h1><img src="/hertzo/img/icone.png" alt="" width="72" height="72">Hertzo</h1>
 <p class="lead" data-l="fr"><strong>La radio du monde entier, au poignet.</strong> Des milliers de stations sur votre montre Wear OS et votre téléphone Android : l'info locale, le jazz de La Nouvelle-Orléans ou la pop de Tokyo, en deux gestes. <strong>Sans publicité, sans compte.</strong></p>
 <p class="lead" data-l="en"><strong>Radio from all over the world, on your wrist.</strong> Thousands of stations on your Wear OS watch and Android phone: local news, New Orleans jazz or Tokyo pop, in two taps. <strong>No ads, no account.</strong></p>
 
 <div>
   <span class="btn" data-l="fr" style="opacity:.75;cursor:default">Bientôt sur Google Play</span>
   <span class="btn" data-l="en" style="opacity:.75;cursor:default">Coming soon to Google Play</span>
+  <a class="btn" data-l="fr" href="/a-faire/radio-du-jour.html">📻 Écouter la radio du jour</a>
+  <a class="btn" data-l="en" href="/a-faire/radio-du-jour.html">📻 Radio of the day</a>
   <div class="price" data-l="fr">Achat unique, sans abonnement · Montre Wear OS et téléphone Android · 6 langues</div>
   <div class="price" data-l="en">One-time purchase, no subscription · Wear OS watch and Android phone · 6 languages</div>
 </div>
-
+</div></div>
+<svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path fill="#fff8ef" d="M0,30 C240,75 480,0 720,25 C960,50 1200,75 1440,28 L1440,70 L0,70 Z"/></svg>
+<main><div class="wrap">
 <h2 data-l="fr">Ce que fait Hertzo</h2><h2 data-l="en">What Hertzo does</h2>
 <div class="card" data-l="fr"><ul>
 <li>Cherchez parmi des milliers de radios du monde entier.</li>
@@ -70,13 +64,15 @@ footer{margin-top:36px;font-size:.9rem;color:#777}
 <div class="card" data-l="fr">Pas de compte, aucune publicité, aucun outil de suivi. Vos favoris et vos enregistrements restent sur vos appareils. La liste des stations vient de l'annuaire libre radio-browser.info.</div>
 <div class="card" data-l="en">No account, no ads, no tracking. Your favourites and recordings stay on your devices. The station list comes from the open radio-browser.info directory.</div>
 
-<footer>
+</div></main>
+
+<footer><div class="wrap">
   <span data-l="fr"><a href="/hertzo/">Politique de confidentialité</a> · <a href="mailto:contact@omstef26.fr">contact@omstef26.fr</a> · <a href="/">Toutes les applis OMStef26</a></span>
   <span data-l="en"><a href="/hertzo/">Privacy policy</a> · <a href="mailto:contact@omstef26.fr">contact@omstef26.fr</a> · <a href="/">All OMStef26 apps</a></span>
   <br>
   <span data-l="fr">Google Play et Wear OS sont des marques de Google LLC.</span>
   <span data-l="en">Google Play and Wear OS are trademarks of Google LLC.</span>
-</footer>
+</div></footer>
 
 <script>
 (function(){
@@ -86,5 +82,6 @@ footer{margin-top:36px;font-size:.9rem;color:#777}
   set((navigator.language||'fr').toLowerCase().indexOf('fr')===0?'fr':'en');
 })();
 </script>
+<script src="/js/site.js" defer></script>
 </body>
 </html>
