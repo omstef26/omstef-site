@@ -10,55 +10,40 @@
 <meta property="og:description" content="Cinq mystères où chaque choix compte. À lire ou à écouter, 6 langues, sans publicité ni compte.">
 <meta property="og:image" content="https://omstef26.fr/destinees/img/og.jpg">
 <meta property="og:type" content="website">
-<style>
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;max-width:860px;margin:0 auto;padding:24px 16px 48px;color:#1c1b1f;background:#fbf6ea}
-h1{font-size:2rem;color:#8a5a00;margin:0}h2{font-size:1.25rem;margin-top:2rem;color:#8a5a00}
-a{color:#8a5a00}
-.top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.top img{width:72px;height:72px;border-radius:16px}
-.lead{font-size:1.1rem;margin:14px 0 18px}
-.btn{display:inline-block;background:#8a5a00;color:#fff !important;text-decoration:none;font-weight:600;padding:13px 26px;border-radius:999px;box-shadow:0 3px 10px rgba(138,90,0,.3)}
-.btn:hover{background:#6b4600}
-.price{display:block;margin-top:8px;font-size:.92rem;color:#6b5b3a}
-.card{background:#fff;border:1px solid #e8d9b5;border-radius:12px;padding:12px 18px;margin:12px 0}
-.card ul{margin:6px 0;padding-left:1.2em}
-.shots{display:flex;gap:12px;overflow-x:auto;padding:6px 2px 14px;scroll-snap-type:x mandatory}
-.shots img{height:460px;width:auto;border-radius:14px;border:1px solid #e8d9b5;scroll-snap-align:start;flex:0 0 auto}
-.sw{position:absolute;top:14px;right:16px}
-.sw button{border:1px solid #e8d9b5;background:#fff;border-radius:999px;padding:6px 14px;cursor:pointer}
-[data-l]{display:none}html[lang=fr] [data-l=fr],html[lang=en] [data-l=en]{display:revert}
-footer{margin-top:36px;font-size:.9rem;color:#777}
-@media (prefers-color-scheme:dark){body{background:#141218;color:#e6e0e9}.card{background:#1d1a22;border-color:#3a3020}.sw button{background:#1d1a22;color:#e6e0e9;border-color:#3a3020}.shots img{border-color:#3a3020}h1,h2,a{color:#e0b05a}.price,footer{color:#b9aa88}}
-</style>
-<style>
-.yt,.yt-frame{display:block;width:100%;border:0;border-radius:14px;cursor:pointer;position:relative;background:#111 center/cover no-repeat;aspect-ratio:16/9;padding:0}
-.yt.v,.yt-frame.v{aspect-ratio:9/16;max-width:300px;margin:0 auto}
-.yt::after{content:"";position:absolute;left:50%;top:50%;width:68px;height:48px;margin:-24px 0 0 -34px;border-radius:12px;background:rgba(0,0,0,.72) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M8 5v14l11-7z'/%3E%3C/svg%3E") center/28px no-repeat}
-.yt:hover::after{background-color:#e00}
-.yt span{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;color:#fff;font:600 14px/1.3 system-ui,sans-serif;text-align:left;background:linear-gradient(transparent,rgba(0,0,0,.8));border-radius:0 0 14px 14px}
-</style>
+<link rel="icon" href="/img/omstef26.png">
+<link rel="stylesheet" href="/css/site.css">
 </head>
-<body>
-<div class="sw"><button type="button" id="sw">English</button></div>
-<p class="back"><a href="/">← OMStef26</a></p>
-
-<div class="top">
-  <img src="img/icone.png" alt="Destinées" width="72" height="72">
-  <h1>Destinées</h1>
-</div>
-
+<body class="app-page" style="--app:#d9a441">
+<header>
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/img/omstef26.png" alt="" width="36" height="36">OMStef26</a>
+    <nav>
+      <a href="/#applis"><span data-l="fr">Les applis</span><span data-l="en">Apps</span></a>
+      <a href="/#videos"><span data-l="fr">Vidéos</span><span data-l="en">Videos</span></a>
+      <a href="/a-faire/"><span data-l="fr">À voir, à faire</span><span data-l="en">Fun stuff</span></a>
+      <a href="/guides/"><span data-l="fr">Guides</span><span data-l="en">Guides</span></a>
+      <a href="/idees/"><span data-l="fr">Vos idées</span><span data-l="en">Your ideas</span></a>
+      <button class="sw" type="button" id="sw">English</button>
+    </nav>
+  </div>
+</header>
+<div class="apphero"><div class="stars" aria-hidden="true"></div><div class="wrap">
+<p class="crumbs" style="color:#aeb9d8"><a href="/" style="color:#aeb9d8">OMStef26</a> › <span data-l="fr">Les applis</span><span data-l="en">Apps</span></p>
+<h1><img src="img/icone.png" alt="Destinées" width="72" height="72">Destinées</h1>
 <p class="lead" data-l="fr"><strong>Des livres dont vous êtes le héros, à lire… ou à écouter.</strong> Enquêteur, gardien, voyageur : à chaque page vous choisissez, et chaque choix compte. <strong>Sans publicité, sans compte.</strong></p>
 <p class="lead" data-l="en"><strong>Choose-your-own-adventure books, to read… or to listen to.</strong> Investigator, keeper, traveller: on every page you choose, and every choice matters. <strong>No ads, no account.</strong></p>
 
-<p>
+<div class="cta">
   <a class="btn" data-l="fr" href="/destinees/essayer.html" style="background:#c9a45c;color:#14110f">Essayer dans le navigateur</a>
   <a class="btn" data-l="en" href="/destinees/essayer.html" style="background:#c9a45c;color:#14110f">Try it in your browser</a>
   <a class="btn" data-l="fr" href="https://play.google.com/store/apps/details?id=fr.omstef26.destinees">Télécharger sur Google Play</a>
   <a class="btn" data-l="en" href="https://play.google.com/store/apps/details?id=fr.omstef26.destinees">Get it on Google Play</a>
   <span class="price" data-l="fr">Application gratuite avec une histoire offerte · les autres s'achètent à l'unité, sans abonnement · Android · 6 langues</span>
   <span class="price" data-l="en">Free app with one story included · the others are one-time purchases, no subscription · Android · 6 languages</span>
-</p>
-
+</div>
+</div></div>
+<svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path fill="#fff8ef" d="M0,30 C240,75 480,0 720,25 C960,50 1200,75 1440,28 L1440,70 L0,70 Z"/></svg>
+<main><div class="wrap">
 <div class="shots" data-l="fr">
   <img src="img/fr-1.jpg" alt="Cinq mystères" loading="lazy"><img src="img/fr-3.jpg" alt="Lecture avec voix" loading="lazy"><img src="img/fr-5.jpg" alt="Carnet d'indices" loading="lazy"><img src="img/fr-7.jpg" alt="Autres histoires" loading="lazy">
 </div>
@@ -66,7 +51,7 @@ footer{margin-top:36px;font-size:.9rem;color:#777}
   <img src="img/en-1.jpg" alt="Five mysteries" loading="lazy"><img src="img/en-3.jpg" alt="Reading with voice" loading="lazy"><img src="img/en-5.jpg" alt="Clue notebook" loading="lazy"><img src="img/en-7.jpg" alt="More stories" loading="lazy">
 </div>
 
-<div style="display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));margin:18px 0"><button type="button" class="yt v" data-id="7YmrVN1SLNk" aria-label="L'Horloger de Vauclair" style="background-image:url(https://i.ytimg.com/vi/7YmrVN1SLNk/hqdefault.jpg)"><span>L'Horloger de Vauclair</span></button><button type="button" class="yt v" data-id="8Oc8xbHucAc" aria-label="Le Phare de Brume-Haute" style="background-image:url(https://i.ytimg.com/vi/8Oc8xbHucAc/hqdefault.jpg)"><span>Le Phare de Brume-Haute</span></button><button type="button" class="yt v" data-id="m6yBaz4G6L0" aria-label="La Dernière Diligence" style="background-image:url(https://i.ytimg.com/vi/m6yBaz4G6L0/hqdefault.jpg)"><span>La Dernière Diligence</span></button><button type="button" class="yt v" data-id="diI-SKeqB6A" aria-label="L'Île aux Mille Marées" style="background-image:url(https://i.ytimg.com/vi/diI-SKeqB6A/hqdefault.jpg)"><span>L'Île aux Mille Marées</span></button><button type="button" class="yt v" data-id="Q5YWTun93HE" aria-label="Le Dernier Masque" style="background-image:url(https://i.ytimg.com/vi/Q5YWTun93HE/hqdefault.jpg)"><span>Le Dernier Masque</span></button></div>
+<div class="vids" style="grid-template-columns:repeat(auto-fill,minmax(170px,1fr))"><button type="button" class="yt v" data-id="7YmrVN1SLNk" aria-label="L'Horloger de Vauclair" style="background-image:url(https://i.ytimg.com/vi/7YmrVN1SLNk/hqdefault.jpg)"><span>L'Horloger de Vauclair</span></button><button type="button" class="yt v" data-id="8Oc8xbHucAc" aria-label="Le Phare de Brume-Haute" style="background-image:url(https://i.ytimg.com/vi/8Oc8xbHucAc/hqdefault.jpg)"><span>Le Phare de Brume-Haute</span></button><button type="button" class="yt v" data-id="m6yBaz4G6L0" aria-label="La Dernière Diligence" style="background-image:url(https://i.ytimg.com/vi/m6yBaz4G6L0/hqdefault.jpg)"><span>La Dernière Diligence</span></button><button type="button" class="yt v" data-id="diI-SKeqB6A" aria-label="L'Île aux Mille Marées" style="background-image:url(https://i.ytimg.com/vi/diI-SKeqB6A/hqdefault.jpg)"><span>L'Île aux Mille Marées</span></button><button type="button" class="yt v" data-id="Q5YWTun93HE" aria-label="Le Dernier Masque" style="background-image:url(https://i.ytimg.com/vi/Q5YWTun93HE/hqdefault.jpg)"><span>Le Dernier Masque</span></button></div>
 
 <h2 data-l="fr">Cinq histoires</h2><h2 data-l="en">Five stories</h2>
 <div class="card" data-l="fr"><ul>
@@ -107,13 +92,15 @@ footer{margin-top:36px;font-size:.9rem;color:#777}
   <a class="btn" data-l="en" href="https://play.google.com/store/apps/details?id=fr.omstef26.destinees">See Destinées on Google Play</a>
 </p>
 
-<footer>
+</div></main>
+
+<footer><div class="wrap">
   <span data-l="fr"><a href="confidentialite.html">Politique de confidentialité</a> · <a href="mailto:contact@omstef26.fr">contact@omstef26.fr</a></span>
   <span data-l="en"><a href="confidentialite.html">Privacy policy</a> · <a href="mailto:contact@omstef26.fr">contact@omstef26.fr</a></span>
   <br>
   <span data-l="fr">Les voix sont des voix de synthèse ; les traductions ont été réalisées avec l'aide d'une IA. Google Play est une marque de Google LLC.</span>
   <span data-l="en">Voices are synthetic; translations were produced with AI assistance. Google Play is a trademark of Google LLC.</span>
-</footer>
+</div></footer>
 
 <script>
 (function(){
@@ -124,5 +111,6 @@ footer{margin-top:36px;font-size:.9rem;color:#777}
 })();
 </script>
 <script src="/js/video.js" defer></script>
+<script src="/js/site.js" defer></script>
 </body>
 </html>

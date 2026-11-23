@@ -10,53 +10,38 @@
 <meta property="og:description" content="Messagerie pour montre Wear OS + appli téléphone. Plusieurs comptes, notifications, synchro instantanée, aucune donnée collectée.">
 <meta property="og:image" content="https://omstef26.fr/watchmail/img/montre-liste.jpg">
 <meta property="og:type" content="website">
-<style>
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;max-width:860px;margin:0 auto;padding:24px 16px 48px;color:#1c1b1f;background:#f7faff}
-h1{font-size:2rem;color:#1d5fa8;margin:0}h2{font-size:1.25rem;margin-top:2rem;color:#1d5fa8}
-a{color:#1d5fa8}
-.top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.top img{width:72px;height:72px;border-radius:16px}
-.lead{font-size:1.1rem;margin:14px 0 18px}
-.btn{display:inline-block;background:#1d5fa8;color:#fff !important;text-decoration:none;font-weight:600;padding:13px 26px;border-radius:999px;box-shadow:0 3px 10px rgba(29,95,168,.3)}
-.btn:hover{background:#154a86}
-.price{display:block;margin-top:8px;font-size:.92rem;color:#5b6570}
-.card{background:#fff;border:1px solid #d6e3f3;border-radius:12px;padding:12px 18px;margin:12px 0}
-.card ul{margin:6px 0;padding-left:1.2em}
-.shots{display:flex;gap:12px;overflow-x:auto;padding:6px 2px 14px;scroll-snap-type:x mandatory}
-.shots img{height:440px;width:auto;border-radius:14px;border:1px solid #d6e3f3;scroll-snap-align:start;flex:0 0 auto}
-.sw{position:absolute;top:14px;right:16px}
-.sw button{border:1px solid #d6e3f3;background:#fff;border-radius:999px;padding:6px 14px;cursor:pointer}
-[data-l]{display:none}html[lang=fr] [data-l=fr],html[lang=en] [data-l=en]{display:revert}
-footer{margin-top:36px;font-size:.9rem;color:#777}
-@media (prefers-color-scheme:dark){body{background:#12151a;color:#e3e6ea}.card{background:#1a1f27;border-color:#26364a}.sw button{background:#1a1f27;color:#e3e6ea;border-color:#26364a}.shots img{border-color:#26364a}h1,h2,a{color:#8fbdf0}.price,footer{color:#9aa6b3}}
-</style>
-<style>
-.yt,.yt-frame{display:block;width:100%;border:0;border-radius:14px;cursor:pointer;position:relative;background:#111 center/cover no-repeat;aspect-ratio:16/9;padding:0}
-.yt.v,.yt-frame.v{aspect-ratio:9/16;max-width:300px;margin:0 auto}
-.yt::after{content:"";position:absolute;left:50%;top:50%;width:68px;height:48px;margin:-24px 0 0 -34px;border-radius:12px;background:rgba(0,0,0,.72) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M8 5v14l11-7z'/%3E%3C/svg%3E") center/28px no-repeat}
-.yt:hover::after{background-color:#e00}
-.yt span{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;color:#fff;font:600 14px/1.3 system-ui,sans-serif;text-align:left;background:linear-gradient(transparent,rgba(0,0,0,.8));border-radius:0 0 14px 14px}
-</style>
+<link rel="icon" href="/img/omstef26.png">
+<link rel="stylesheet" href="/css/site.css">
 </head>
-<body>
-<div class="sw"><button type="button" id="sw">English</button></div>
-<p class="back"><a href="/">← OMStef26</a></p>
-
-<div class="top">
-  <img src="img/icone.png" alt="WatchMail" width="72" height="72">
-  <h1>WatchMail</h1>
-</div>
-
+<body class="app-page" style="--app:#3b82f6">
+<header>
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/img/omstef26.png" alt="" width="36" height="36">OMStef26</a>
+    <nav>
+      <a href="/#applis"><span data-l="fr">Les applis</span><span data-l="en">Apps</span></a>
+      <a href="/#videos"><span data-l="fr">Vidéos</span><span data-l="en">Videos</span></a>
+      <a href="/a-faire/"><span data-l="fr">À voir, à faire</span><span data-l="en">Fun stuff</span></a>
+      <a href="/guides/"><span data-l="fr">Guides</span><span data-l="en">Guides</span></a>
+      <a href="/idees/"><span data-l="fr">Vos idées</span><span data-l="en">Your ideas</span></a>
+      <button class="sw" type="button" id="sw">English</button>
+    </nav>
+  </div>
+</header>
+<div class="apphero"><div class="stars" aria-hidden="true"></div><div class="wrap">
+<p class="crumbs" style="color:#aeb9d8"><a href="/" style="color:#aeb9d8">OMStef26</a> › <span data-l="fr">Les applis</span><span data-l="en">Apps</span></p>
+<h1><img src="img/icone.png" alt="WatchMail" width="72" height="72">WatchMail</h1>
 <p class="lead" data-l="fr"><strong>Vos mails au poignet</strong>, avec une appli mail complète sur le téléphone. Lisez, supprimez, déplacez : tout est immédiat et se synchronise des deux côtés. <strong>Aucun serveur intermédiaire, aucune donnée collectée.</strong></p>
 <p class="lead" data-l="en"><strong>Your email on your wrist</strong>, with a full email app on your phone. Read, delete, move: everything is instant and stays in sync on both devices. <strong>No middleman server, no data collected.</strong></p>
 
-<p>
+<div class="cta">
   <a class="btn" data-l="fr" href="https://play.google.com/store/apps/details?id=fr.omstef26.watchmail">Télécharger sur Google Play</a>
   <a class="btn" data-l="en" href="https://play.google.com/store/apps/details?id=fr.omstef26.watchmail">Get it on Google Play</a>
   <span class="price" data-l="fr">Achat unique, sans abonnement · Montre Wear OS 3+ et téléphone Android · FR, EN, ES, DE, IT</span>
   <span class="price" data-l="en">One-time purchase, no subscription · Wear OS 3+ watch and Android phone · FR, EN, ES, DE, IT</span>
-</p>
-
+</div>
+</div></div>
+<svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path fill="#fff8ef" d="M0,30 C240,75 480,0 720,25 C960,50 1200,75 1440,28 L1440,70 L0,70 Z"/></svg>
+<main><div class="wrap">
 <div class="shots">
   <img src="img/montre-liste.jpg" alt="Liste des mails sur la montre" loading="lazy">
   <img src="img/montre-mail.jpg" alt="Mail ouvert sur la montre" loading="lazy">
@@ -65,7 +50,7 @@ footer{margin-top:36px;font-size:.9rem;color:#777}
   <img src="img/reglages.jpg" alt="Réglages" loading="lazy">
 </div>
 
-<div style="display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin:18px 0"><button type="button" class="yt" data-id="TTa1qAgdlmU" aria-label="WatchMail en 25 secondes" style="background-image:url(https://i.ytimg.com/vi/TTa1qAgdlmU/hqdefault.jpg)"><span>WatchMail en 25 secondes</span></button><button type="button" class="yt" data-id="YF-Pbw2lFHQ" aria-label="WatchMail in English" style="background-image:url(https://i.ytimg.com/vi/YF-Pbw2lFHQ/hqdefault.jpg)"><span>WatchMail in English</span></button></div>
+<div class="vids"><button type="button" class="yt" data-id="TTa1qAgdlmU" aria-label="WatchMail en 25 secondes" style="background-image:url(https://i.ytimg.com/vi/TTa1qAgdlmU/hqdefault.jpg)"><span>WatchMail en 25 secondes</span></button><button type="button" class="yt" data-id="YF-Pbw2lFHQ" aria-label="WatchMail in English" style="background-image:url(https://i.ytimg.com/vi/YF-Pbw2lFHQ/hqdefault.jpg)"><span>WatchMail in English</span></button></div>
 
 <h2 data-l="fr">Sur la montre</h2><h2 data-l="en">On the watch</h2>
 <div class="card" data-l="fr"><ul>
@@ -106,13 +91,15 @@ footer{margin-top:36px;font-size:.9rem;color:#777}
   <a class="btn" data-l="en" href="https://play.google.com/store/apps/details?id=fr.omstef26.watchmail">See WatchMail on Google Play</a>
 </p>
 
-<footer>
+</div></main>
+
+<footer><div class="wrap">
   <span data-l="fr"><a href="confidentialite-watchmail.html">Politique de confidentialité</a> · <a href="mailto:contact@omstef26.fr">contact@omstef26.fr</a></span>
   <span data-l="en"><a href="confidentialite-watchmail.html">Privacy policy</a> · <a href="mailto:contact@omstef26.fr">contact@omstef26.fr</a></span>
   <br>
   <span data-l="fr">WatchMail n'est affiliée à aucun fournisseur de messagerie. Google Play et Wear OS sont des marques de Google LLC.</span>
   <span data-l="en">WatchMail is not affiliated with any email provider. Google Play and Wear OS are trademarks of Google LLC.</span>
-</footer>
+</div></footer>
 
 <script>
 (function(){
@@ -123,5 +110,6 @@ footer{margin-top:36px;font-size:.9rem;color:#777}
 })();
 </script>
 <script src="/js/video.js" defer></script>
+<script src="/js/site.js" defer></script>
 </body>
 </html>
